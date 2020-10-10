@@ -1,5 +1,5 @@
 {
-  "name": "bobsburgers",
+  "name": "pan-am",
   "version": "1.0.0",
   "description": "",
   "main": "src/javascripts/main.js",
@@ -8,7 +8,7 @@
     "build": "webpack --mode production --module-bind js=babel-loader"
   },
   "keywords": [],
-  "author": "",
+  "author": "Team 5: Chris C, Bailey D., Autumn F., Wanda Mc.",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "7.11.4",
