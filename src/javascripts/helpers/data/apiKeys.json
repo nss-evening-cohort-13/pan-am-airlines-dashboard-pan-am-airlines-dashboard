@@ -1,0 +1,11 @@
+{
+  "firebaseKeys": {
+    "apiKey": "AIzaSyAl-vObYPuHIcFiWc43MnRX4DjlQ7K6gUI",
+    "authDomain": "pan-am-dashboard.firebaseapp.com",
+    "databaseURL": "https://pan-am-dashboard.firebaseio.com",
+    "projectId": "pan-am-dashboard",
+    "storageBucket": "pan-am-dashboard.appspot.com",
+    "messagingSenderId": "788245918927",
+    "appId": "1:788245918927:web:7e15bea2ef305cffa9f3ba"
+  }
+}
