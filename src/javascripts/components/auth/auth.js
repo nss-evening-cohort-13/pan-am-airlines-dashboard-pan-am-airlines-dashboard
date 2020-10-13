@@ -7,15 +7,14 @@ const signMeIn = () => {
 };
 
 const loginButton = () => {
-    const domString = `<div id="auth">
-                        <h4>Welcome to Panam Airlines</h4>
+  const domString = `<div id="auth">
                         <button id="google-auth" class="btn btn-primary btn-lg">
-                          <i class="fab fa-google"></i></i>Google Login
+                            <i class="fab fa-google"></i></i>Google Login
                         </button>
-                      </div>`;
-  
-    $('#app').html(domString);
-    $('#google-auth').on('click', signMeIn);
-  };
+                        </div>`;
 
-export default {loginButton}
+  $('#app').html(domString);
+  $('#google-auth').on('click', signMeIn);
+};
+
+export default { loginButton };

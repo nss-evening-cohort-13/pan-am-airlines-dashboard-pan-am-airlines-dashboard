@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+// import auth from '../auth/auth';
 
 const logoutEvent = () => {
   $('#navbar-logout-button').on('click', (e) => {
@@ -10,7 +11,8 @@ const logoutEvent = () => {
   });
 };
 
-const myNavbar = () => {
+const myNavbar = (currentUser = '') => {
+  console.log(currentUser.name);
   $('#nav').html(
     `<nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#"><i class="fas fa-globe"></i> PanAm</a>
@@ -32,17 +34,17 @@ const myNavbar = () => {
     </ul>
 
         <ul class="navbar-nav ml-auto">
-          <li class="user-info-nav">
-            Welcome, User!
-          </li>
-          <li class="nav-item">
+          <li id = 'nav-username' class="user-info-nav"></li>
+          <li id = 'btn-logout' class="nav-item">
             <button class="nav-link btn btn-danger p-2" id="navbar-logout-button">Logout</button>
           </li>
         </ul>
       </div>
     </nav>`
   );
-
+  if (currentUser !== '') {
+    $('#nav-info-nav').html(`${currentUser.name}`);
+  }
   logoutEvent();
 };
 

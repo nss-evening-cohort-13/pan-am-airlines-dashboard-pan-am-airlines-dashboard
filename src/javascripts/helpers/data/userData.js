@@ -18,7 +18,7 @@ const checkIfUserExistsInFirebase = (user) => {
       } else {
         console.warn('User Already Exists');
       }
-      
+
       window.sessionStorage.setItem('ua', true);
     })
     .catch((error) => console.error(error));
