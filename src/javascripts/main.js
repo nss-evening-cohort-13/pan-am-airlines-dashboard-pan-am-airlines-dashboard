@@ -1,8 +1,8 @@
 import '../styles/main.scss';
+import authData from './helpers/data/authData';
 
 const init = () => {
-  $('#app').html('<h1>HELLO! You are up and running!</h1>');
-  console.warn('YOU ARE UP AND RUNNING!');
+  authData.checkLoginStatus();
 };
 
 init();
