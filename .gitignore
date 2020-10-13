@@ -1,2 +1,13 @@
+<<<<<<< HEAD
 node_modules
 src/javascripts/helpers/apiKeys.json
+=======
+.vscode/
+.DS_Store
+package-lock.json
+node_modules/
+dist/
+build/
+.firebase/
+src/javascripts/helpers/data/apiKeys.json
+>>>>>>> Development
