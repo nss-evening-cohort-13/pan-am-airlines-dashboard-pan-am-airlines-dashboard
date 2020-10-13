@@ -9,8 +9,8 @@ const airportBuilder = (airport) => {
       <li class="list-group-item">Airport Code: ${airport.IATA}</li>
     </ul>
     <div class="card-body">
-      <a href="#" class="card-link">Card link</a>
-      <a href="#" class="card-link">Another link</a>
+      <a href="#" class="card-link">Update Airport</a>
+      <a href="#" class="card-link">Delete Airport</a>
     </div>
   </div>`;
   return domString;

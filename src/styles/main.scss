@@ -15,6 +15,17 @@ body {
   width: 90%;
 }
 
+#airports-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  #add-airport-btn {
+    margin: 2rem;
+  }
+}
+
+
 .hide {
   display: none;
 }
