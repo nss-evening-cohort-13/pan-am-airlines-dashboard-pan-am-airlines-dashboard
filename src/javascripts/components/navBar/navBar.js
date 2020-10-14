@@ -1,15 +1,3 @@
-import firebase from 'firebase/app';
-import 'firebase/auth';
-
-const logoutEvent = () => {
-  $('#navbar-logout-button').on('click', (e) => {
-    e.preventDefault();
-    window.sessionStorage.removeItem('ua');
-    firebase.auth().signOut();
-    window.location.href = '/';
-  });
-};
-
 const myNavbar = () => {
   $('#nav').html(
     `<nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -42,8 +30,6 @@ const myNavbar = () => {
       </div>
     </nav>`
   );
-
-  logoutEvent();
 };
 
 export default { myNavbar };
