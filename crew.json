@@ -1,32 +1,64 @@
 {
    "crew1": {
+      "id": "crew1",
+      "name": "Clarence Oveur",
+      "role":"Captain",
+      "firebaseKey":"planeUid"
      
     },
     "crew2": {
+      "id": "crew2",
+      "name": "Ted Striker",
+      "role":"First Officer",
+      "firebaseKey":"planeUid"
       
     },
    
     "crew3": {
+      "id": "crew3",
+      "name": "Roger Murdock",
+      "role":"Second Officer",
+      "firebaseKey":"planeUid"
       
     },
    
     "crew4": {
+      "id": "crew4",
+      "name": "Elaine Dickinson",
+      "role":"Chief Pursar",
+      "firebaseKey":"planeUid"
       
     },
    
     "crew5": {
+      "id": "crew5",
+      "name": "Randy Patterson",
+      "role":"Pursar",
+      "firebaseKey":"planeUid"
       
     },
    
     "crew6": {
+      "id": "crew6",
+      "name": "D.B. Cooper",
+      "role":"Flight Attendant",
+      "firebaseKey":"planeUid"
       
     },
    
     "crew7": {
+      "id": "crew7",
+      "name": "David Spade",
+      "role":"Flight Attendant",
+      "firebaseKey":"planeUid"
       
     },
    
     "crew8": {
+      "id": "crew8",
+      "name": "Helen Hunt",
+      "role":"Flight Attendant",
+      "firebaseKey":"planeUid"
       
     }
    
