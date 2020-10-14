@@ -7,14 +7,22 @@ const signMeIn = () => {
 };
 
 const loginButton = () => {
-  const domString = `<div id="auth">
-                        <button id="google-auth" class="btn btn-primary btn-lg">
+  const domString = `<button id="google-auth" class="btn btn-primary btn-lg">
                             <i class="fab fa-google"></i></i>Google Login
-                        </button>
-                        </div>`;
+                        </button>`;
 
-  $('#app').html(domString);
+  $('#btn-login').html(domString);
   $('#google-auth').on('click', signMeIn);
 };
 
-export default { loginButton };
+const logoutButton = () => {
+  $('#btn-logout').html('<button class="nav-link btn btn-danger p-2" id="navbar-logout-button">Logout</button>');
+  $('#navbar-logout-button').on('click', (e) => {
+    e.preventDefault();
+    window.sessionStorage.removeItem('ua');
+    firebase.auth().signOut();
+    window.location.href = '/';
+  });
+};
+
+export default { loginButton, logoutButton };

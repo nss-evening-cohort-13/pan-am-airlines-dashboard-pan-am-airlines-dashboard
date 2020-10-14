@@ -6,10 +6,13 @@ import myNavbar from '../../components/navBar/navBar';
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((userObj) => {
+    // If the user is logged in
     if (userObj) {
-      $('#auth').html('');
       const currentUser = userData.setCurrentUser(userObj);
-      myNavbar.myNavbar(currentUser);
+      const { name } = currentUser;
+      myNavbar.myNavbar(name);
+      auth.logoutButton();
+    // If the user isn't logged in
     } else {
       myNavbar.myNavbar();
       auth.loginButton();

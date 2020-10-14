@@ -1,5 +1,5 @@
 import axios from 'axios';
-import apiKeys from '../apiKeys.json';
+import apiKeys from './apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
@@ -32,7 +32,6 @@ const setCurrentUser = (userObj) => {
     email: userObj.email,
     lastSignInTime: userObj.metadata.lastSignInTime,
   };
-
   const loggedIn = window.sessionStorage.getItem('ua');
   if (!loggedIn) {
     checkIfUserExistsInFirebase(user);
