@@ -1,4 +1,4 @@
-const myNavbar = () => {
+const myNavbar = (name = 'Guest') => {
   $('#nav').html(
     `<nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="#"><i class="fas fa-globe"></i> PanAm</a>
@@ -20,11 +20,10 @@ const myNavbar = () => {
     </ul>
 
         <ul class="navbar-nav ml-auto">
-          <li class="user-info-nav">
-            Welcome, User!
+          <li id='nav-username' class="user-info-nav">${name}</li>
+          <li id='btn-login' class="nav-item">
           </li>
-          <li class="nav-item">
-            <button class="nav-link btn btn-danger p-2" id="navbar-logout-button">Logout</button>
+          <li id='btn-logout' class="nav-item">
           </li>
         </ul>
       </div>
