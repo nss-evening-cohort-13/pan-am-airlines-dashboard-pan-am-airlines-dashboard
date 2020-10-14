@@ -1,9 +1,39 @@
-@import "~bootstrap/scss/bootstrap";
-@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import '~bootstrap/scss/bootstrap';
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
+
+$commonBG: url('/images/homeAM.jpg');
 
 body {
-  background-color: antiquewhite;
-  color: brown;
+  background-color: rgb(54, 137, 255);
+  #landing-page-image {
+    height: 40em;
+    width: 100%;
+    background-image: $commonBG;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+#app {
+  margin: auto;
+  margin-top: 50px;
+  width: 90%;
+}
+
+#button-area {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#airports-area {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
   text-align: center;
-  margin-top: 100px;
+}
+
+.hide {
+  display: none;
 }
