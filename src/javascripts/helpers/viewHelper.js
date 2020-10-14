@@ -1,7 +1,10 @@
+import home from '../components/views/homeView';
 import airport from '../components/views/airportView';
 
 const viewHelper = (id) => {
   switch (id) {
+    case '#':
+      return home.showHomepage();
     case 'airports-link':
       return airport.showAirport();
     default:

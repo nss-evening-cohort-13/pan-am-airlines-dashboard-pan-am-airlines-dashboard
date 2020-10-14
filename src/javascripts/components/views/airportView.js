@@ -2,6 +2,7 @@
 // import airportCard from '../cards/airportCard';
 
 const showAirport = () => {
+  $('#app').html('');
   $('#app').append('<div id="airports-area"></div>');
   $('#airports-area').append('<button type="button" class="btn btn-success" id="add-airport-btn"><i class="fas fa-plus-circle"></i> Add an Airport</button>');
   $('#airports-area').append('<h1>No Airports!</h1>');

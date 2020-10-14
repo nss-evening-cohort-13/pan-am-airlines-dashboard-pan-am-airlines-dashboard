@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-node_modules
-src/javascripts/helpers/apiKeys.json
-=======
 .vscode/
 .DS_Store
 package-lock.json
@@ -10,4 +6,3 @@ dist/
 build/
 .firebase/
 src/javascripts/helpers/data/apiKeys.json
->>>>>>> Development
