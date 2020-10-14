@@ -7,9 +7,6 @@ const myNavbar = (name = 'Guest') => {
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
-
-    
-
       <li class="nav-item mx-3"  id="home">
         <a class="navbar-brand" id="home" href="#"><i class="fas fa-globe"></i> PanAm</a>
       </li>

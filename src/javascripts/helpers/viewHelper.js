@@ -2,7 +2,6 @@ import home from '../components/views/homeView';
 import airport from '../components/views/airportView';
 
 const viewHelper = (id) => {
-  console.log(id);
   $('#app').html('');
   switch (id) {
     case 'home':
