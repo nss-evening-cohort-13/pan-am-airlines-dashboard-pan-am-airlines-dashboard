@@ -3,9 +3,9 @@ import apiKeys from './apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const getAirports = (userId) => new Promise((resolve, reject) => {
+const getAirports = () => new Promise((resolve, reject) => {
   axios
-    .get(`${baseUrl}/airports.json?orderBy="useruid"&equalTo="${userId}"`)
+    .get(`${baseUrl}/airports.json`)
     .then((response) => {
       const airportResponse = response.data;
       const airportList = [];

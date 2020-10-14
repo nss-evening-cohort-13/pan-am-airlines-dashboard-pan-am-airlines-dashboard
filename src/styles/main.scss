@@ -6,31 +6,32 @@ $commonBG: url('/images/homeAM.jpg');
 body {
   background-color: rgb(54, 137, 255);
   #landing-page-image {
-    height: 45em;
+    height: 40em;
     width: 100%;
     background-image: $commonBG;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
   }
 }
+
 #app {
   margin: auto;
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: row wrap;
   margin-top: 50px;
   width: 90%;
 }
 
+#button-area {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #airports-area {
   display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
+  flex-flow: row wrap;
+  justify-content: space-around;
   text-align: center;
-  #add-airport-btn {
-    margin: 2rem;
-  }
 }
 
 .hide {
