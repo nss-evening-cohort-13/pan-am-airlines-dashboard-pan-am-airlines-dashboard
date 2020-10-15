@@ -1,25 +1,46 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/css/all.min.css';
 
+$commonBG: url('/images/homeAM.jpg');
 
 body {
   background-color: rgb(54, 137, 255);
+  #landing-page-image {
+    height: 40em;
+    width: 100%;
+    background-image: $commonBG;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
 }
 
 #app {
   margin: auto;
-  display: flex;
-  justify-content: space-evenly;
-  flex-flow: row wrap;
   margin-top: 50px;
   width: 90%;
+}
+
+#button-area {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#airports-area {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  text-align: center;
 }
 
 .hide {
   display: none;
 }
 
-.jumbotron{
-  background-image: url('https://help.redbubble.com/hc/article_attachments/360061339971/PAWA025_Pan_AmStylized_Wordmark_With_Globe_Mid1950s-1960s.jpg');
-  background-size: cover;
+#baggage-area{
+  display:flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  text-align: center;
 }

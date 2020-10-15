@@ -1,12 +1,19 @@
 import home from '../components/views/homeView';
-import plane from '../components/views/addPlaneView';
+import airport from '../components/views/airportView';
+import baggage from '../components/views/baggageView';
 
 const viewHelper = (id) => {
+  $('#app').html('');
   switch (id) {
-    case '#':
+    case 'home':
       return home.showHomepage();
+    case 'airports-link':
+      return airport.showAirport();
     case 'planes-link':
-      return plane.showPlane();
+      return baggage.showBaggage();
+    case 'foods-link':
+      return $('#app').html('Food services under development');
+
     default:
       return console.warn('nothing clicked');
   }
