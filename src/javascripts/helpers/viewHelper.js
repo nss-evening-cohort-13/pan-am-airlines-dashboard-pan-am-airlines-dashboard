@@ -4,8 +4,6 @@ import airport from '../components/views/airportView';
 const viewHelper = (id, user) => {
   switch (id) {
     case '#':
-      $('#app').html('');
-      return home.showHomepage();
     case 'home':
       $('#app').html('');
       return home.showHomepage();
