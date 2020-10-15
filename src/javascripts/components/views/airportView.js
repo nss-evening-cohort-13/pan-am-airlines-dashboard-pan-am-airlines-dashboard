@@ -15,10 +15,10 @@ const showAirport = (user) => {
         $('#airports-area').append(airportCard.airportBuilder(airport, user));
         if (user) {
           $(`#${airport.uid}`).append(
-            '<a href="#" class="card-link">Update Airport</a>'
+            `<a href="#" class="card-link update-link" id=${airport.IATA}>Update Airport</a>`
           );
           $(`#${airport.uid}`).append(
-            '<a href="#" class="card-link">Remove Airport</a>'
+            `<a href="#" class="card-link remove-link" id=${airport.IATA}>Remove Airport</a>`
           );
         }
       });
