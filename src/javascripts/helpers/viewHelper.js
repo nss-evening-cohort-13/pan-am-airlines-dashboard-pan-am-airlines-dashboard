@@ -4,15 +4,19 @@ import airport from '../components/views/airportView';
 const viewHelper = (id, user) => {
   switch (id) {
     case '#':
+      $('#app').html('');
       return home.showHomepage();
     case 'home':
       $('#app').html('');
       return home.showHomepage();
     case 'airports-link':
+      $('#app').html('');
       return airport.showAirport(user);
     case 'planes-link':
+      $('#app').html('');
       return $('#app').html('Planes under development');
     case 'foods-link':
+      $('#app').html('');
       return $('#app').html('Food services under development');
 
     default:
