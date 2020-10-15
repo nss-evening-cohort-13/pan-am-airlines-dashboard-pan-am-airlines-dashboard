@@ -5,6 +5,9 @@ const viewHelper = (id, user) => {
   switch (id) {
     case '#':
       return home.showHomepage();
+    case 'home':
+      $('#app').html('');
+      return home.showHomepage();
     case 'airports-link':
       return airport.showAirport(user);
     case 'planes-link':
