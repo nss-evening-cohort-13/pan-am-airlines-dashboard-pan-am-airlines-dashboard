@@ -7,7 +7,7 @@ import view from '../viewHelper';
 
 const checkLoginStatus = () => {
   firebase.auth().onAuthStateChanged((userObj) => {
-    view.viewListener('#');
+    view.viewListener('#', userObj);
     // If the user is logged in
     if (userObj) {
       const currentUser = userData.setCurrentUser(userObj);
