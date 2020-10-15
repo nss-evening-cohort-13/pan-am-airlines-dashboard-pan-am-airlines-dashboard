@@ -7,6 +7,11 @@ const viewHelper = (id, user) => {
       return home.showHomepage();
     case 'airports-link':
       return airport.showAirport(user);
+    case 'planes-link':
+      return $('#app').html('Planes under development');
+    case 'foods-link':
+      return $('#app').html('Food services under development');
+
     default:
       return console.warn('nothing clicked');
   }

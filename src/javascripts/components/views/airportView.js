@@ -13,7 +13,6 @@ const showAirport = (user) => {
       $('#airports-area').html('');
       response.forEach((airport) => {
         $('#airports-area').append(airportCard.airportBuilder(airport, user));
-        console.warn(user);
         if (user) {
           $(`#${airport.uid}`).append(
             '<a href="#" class="card-link">Update Airport</a>'
