@@ -1,0 +1,63 @@
+{
+   "crew1": {
+      "uid": "crew1",
+      "name": "Clarence Oveur",
+      "role":"Captain",
+      "planeUid": "plane3"
+     
+    },
+    "crew2": {
+      "uid": "crew2",
+      "name": "Ted Striker",
+      "role":"First Officer",
+      "planeUid": "plane1"
+      
+    },
+   
+    "crew3": {
+      "uid": "crew3",
+      "name": "Roger Murdock",
+      "role":"Second Officer",
+      "planeUid": "plane3"
+      
+    },
+   
+    "crew4": {
+      "uid": "crew4",
+      "name": "Elaine Dickinson",
+      "role":"Chief Pursar",
+      "planeUid": "plane3"
+      
+    },
+   
+    "crew5": {
+      "uid": "crew5",
+      "name": "Randy Patterson",
+      "role":"Pursar",
+      "planeUid": "plane4"
+      
+    },
+   
+    "crew6": {
+      "uid": "crew6",
+      "name": "D.B. Cooper",
+      "role":"Flight Attendant",
+      "planeUid": "plane1"
+    },
+   
+    "crew7": {
+      "uid": "crew7",
+      "name": "David Spade",
+      "role":"Flight Attendant",
+      "planeUid": "plane2"  
+    },
+   
+    "crew8": {
+      "uid": "crew8",
+      "name": "Helen Hunt",
+      "role":"Flight Attendant",
+      "planeUid": "plane3"    
+    }
+   
+    }  
+  
