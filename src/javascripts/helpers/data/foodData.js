@@ -11,7 +11,7 @@ const getFoodItems = () => new Promise((resolve, reject) => {
         const foodItemsList = [];
         if (foodItems) {
           Object.keys(foodItems).forEach((foodId) => {
-            airportList.push(foodItems[foodId]);
+            foodItemsList.push(foodItems[foodId]);
           });
         }
         resolve(foodItemsList);
