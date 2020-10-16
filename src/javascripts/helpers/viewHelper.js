@@ -1,5 +1,6 @@
 import home from '../components/views/homeView';
 import airport from '../components/views/airportView';
+import Food from '../components/views/foodView';
 
 const viewHelper = (id, user) => {
   switch (id) {
@@ -15,7 +16,7 @@ const viewHelper = (id, user) => {
       return $('#app').html('Planes under development');
     case 'foods-link':
       $('#app').html('');
-      return $('#app').html('Food services under development');
+      return Food.showFood(user);
 
     default:
       return console.warn('nothing clicked');
