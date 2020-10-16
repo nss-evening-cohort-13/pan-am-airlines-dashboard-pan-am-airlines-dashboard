@@ -1,5 +1,6 @@
 import home from '../components/views/homeView';
 import airport from '../components/views/airportView';
+import plane from '../components/views/planesView';
 
 const viewHelper = (id) => {
   $('#app').html('');
@@ -9,7 +10,7 @@ const viewHelper = (id) => {
     case 'airports-link':
       return airport.showAirport();
     case 'planes-link':
-      return $('#app').html('Planes under development');
+      return plane.viewPlanes();
     case 'foods-link':
       return $('#app').html('Food services under development');
 
