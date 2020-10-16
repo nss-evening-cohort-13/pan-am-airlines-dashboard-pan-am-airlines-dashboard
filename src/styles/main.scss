@@ -34,6 +34,13 @@ body {
   text-align: center;
 }
 
+#food-area {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
 .hide {
   display: none;
 }
