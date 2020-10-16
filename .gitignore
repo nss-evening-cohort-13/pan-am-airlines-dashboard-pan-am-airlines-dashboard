@@ -1,1 +1,8 @@
-node_modules
+.vscode/
+.DS_Store
+package-lock.json
+node_modules/
+dist/
+build/
+.firebase/
+src/javascripts/helpers/data/apiKeys.json
