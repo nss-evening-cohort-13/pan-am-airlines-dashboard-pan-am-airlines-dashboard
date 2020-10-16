@@ -13,7 +13,7 @@ const viewHelper = (id, user) => {
       return airport.showAirport(user);
     case 'planes-link':
       $('#app').html('');
-      return plane.viewPlanes();
+      return plane.viewPlanes(user);
     case 'foods-link':
       $('#app').html('');
       return $('#app').html('Food services under development');
