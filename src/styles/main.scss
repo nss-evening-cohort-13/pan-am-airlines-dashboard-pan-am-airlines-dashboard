@@ -27,6 +27,13 @@ body {
   align-items: center;
 }
 
+.button-area {
+  margin: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 #airports-area {
   display: flex;
   flex-flow: row wrap;
