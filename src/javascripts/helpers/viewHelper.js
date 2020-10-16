@@ -29,6 +29,7 @@ const viewListener = (view, user) => {
   $('body').on('click', 'li.nav-item', (e) => {
     viewHelper(e.currentTarget.id, user);
   });
+  $('body').on('click,');
 };
 
 export default { viewListener };
