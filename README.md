@@ -7,8 +7,8 @@
 #
 # 
 # ERD
-https://lucid.app/invitations/accept/9c92062d-a713-4103-a3ba-29f24b17b003
+![Our Erd](images/.gif)
 
 # WIREFRAME
-https://www.figma.com/file/9y9GwujaCg3Rzr5w2QCHra/PanAm?node-id=0%3A1
+[Check out the rest here](https://www.figma.com/file/9y9GwujaCg3Rzr5w2QCHra/PanAm?node-id=0%3A1)
 
