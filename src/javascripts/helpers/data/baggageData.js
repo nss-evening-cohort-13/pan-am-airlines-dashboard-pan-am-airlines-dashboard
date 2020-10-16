@@ -5,7 +5,7 @@ const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
 const getBaggage = () => new Promise((resolve, reject) => {
   axios
-    .get(`${baseUrl}/baggage.json`)
+    .get(`${baseUrl}/Baggage.json`)
     .then((response) => {
       const baggageResponse = response.data;
       const baggageList = [];
