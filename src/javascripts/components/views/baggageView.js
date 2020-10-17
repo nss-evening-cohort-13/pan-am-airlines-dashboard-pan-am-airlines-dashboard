@@ -1,5 +1,6 @@
 import baggageData from '../../helpers/data/baggageData';
 import baggageCard from '../cards/baggageCard';
+import form from '../forms/baggageForm';
 
 const showBaggage = (user) => {
   $('#app').html('');
@@ -14,7 +15,7 @@ const showBaggage = (user) => {
         if (user) {
           if ($('#baggage-btn-area').is(':empty')) {
             $('#baggage-btn-area').append(
-              '<button type="button" class="btn btn-success" id="add-food-btn"><i class="fas fa-plus-circle"></i>Add Baggage</button>'
+              '<button type="button" class="btn btn-success" id="add-baggage-btn"><i class="fas fa-plus-circle"></i>Add Baggage</button>'
             );
           }
           $(`#${baggage.uid}`).append(
@@ -33,7 +34,7 @@ const showBaggage = (user) => {
 
 const baggageFormView = () => {
   $('#app').html('<div class="forms" id="baggage-form"></div>');
-  form.baggageFormView();
+  form.baggageForm();
 };
 
 export default {

@@ -11,7 +11,7 @@ const baggageForm = () => {
       <input type="text" class="form-control" id="owner" placeholder="Example: Lauryn Hill">
       </div>
       <div class="form-group">
-      <label for="state">State</label>
+      <label for="state">Destination</label>
       <input type="text" class="form-control" id="state" placeholder="Example: Tennessee">
       </div>
         <div class="form-group">
