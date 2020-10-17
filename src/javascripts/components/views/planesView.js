@@ -3,9 +3,8 @@ import planeCard from '../cards/planeCard';
 
 const viewPlanes = (user) => {
   $('#app').html('');
-  $('#app').append('<div id="button-area"></div>');
+  $('#app').append('<div id="planes-btn-area" class="button-area"></div>');
   $('#app').append('<div id="planes-area"></div>');
-  $('#button-area').append('<button type="button" class="btn btn-success" id="add-plane-btn"><i class="fas fa-plus"></i> Add New Plane</button>');
 
   planeData.getPlanes().then((response) => {
     if (response.length) {
@@ -13,6 +12,12 @@ const viewPlanes = (user) => {
       response.forEach((plane) => {
         $('#planes-area').append(planeCard.planeMaker(plane));
         if (user) {
+          if ($('#planes-btn-area').is(':empty')) {
+            $('#planes-btn-area').append(
+              '<button type="button" class="btn btn-success" id="add-plane-btn"><i class="fas fa-plus-circle"></i>Add a New Plane</button>'
+            );
+          }
+
           $(`#${plane.uid}`).append(
             `<a href="#" class="card-link update-link" id=${plane.type}>Update Plane</a>`
           );

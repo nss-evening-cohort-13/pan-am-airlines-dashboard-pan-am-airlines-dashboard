@@ -1,8 +1,8 @@
 import form from '../forms/addPlaneForm';
 
-const addPlaneView = () => {
-  $('#app').html('<div id="plane-form">Put plane form here</div>');
+const addplaneView = () => {
+  $('#app').html('<div class = "forms" id = "plane-form"></div>');
   form.planeForm();
 };
 
-export default { addPlaneView };
+export default { addplaneView };

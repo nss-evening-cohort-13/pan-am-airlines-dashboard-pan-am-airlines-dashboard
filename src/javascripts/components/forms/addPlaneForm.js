@@ -36,7 +36,7 @@ const planeForm = () => {
       );
     } else {
       $('#error-message').html('');
-      planeData.getPlanes(data)
+      planeData.addPlane(data)
         .then(() => {
           $('#success-message').html(
             '<div class="alert alert-success" role="alert">Your Plane Was Added!</div>'
@@ -45,7 +45,7 @@ const planeForm = () => {
         .catch((error) => console.warn(error));
       setTimeout(() => {
         $('#sucess-message').html('');
-      }, 100);
+      }, 30000);
       $('#name').val('');
       $('#location').val('');
       $('#image').val('');

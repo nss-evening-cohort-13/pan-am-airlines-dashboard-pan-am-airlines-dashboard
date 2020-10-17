@@ -2,6 +2,7 @@ import FoodData from '../../helpers/data/foodData';
 import FoodCard from '../cards/foodCard';
 
 const showFood = (user) => {
+  $('#app').html('');
   $('#app').append('<div id="food-btn-area" class="button-area"></div>');
   $('#app').append('<div id="food-area"></div>');
 
