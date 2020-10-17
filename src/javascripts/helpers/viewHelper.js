@@ -1,8 +1,9 @@
 import home from '../components/views/homeView';
 import airport from '../components/views/airportView';
-import plane from '../components/views/planesView';
+import addplaneView from '../components/views/addPlaneView';
 import Food from '../components/views/foodView';
 import baggage from '../components/views/baggageView';
+import plane from '../components/views/planesView';
 
 const viewHelper = (id, user) => {
   switch (id) {
@@ -13,6 +14,9 @@ const viewHelper = (id, user) => {
       return airport.showAirport(user);
     case 'planes-link':
       return plane.viewPlanes(user);
+    case 'add-plane-btn':
+      $('#app').html('');
+      return addplaneView.addplaneView();
     case 'foods-link':
       return Food.showFood(user);
     case 'baggage-link':

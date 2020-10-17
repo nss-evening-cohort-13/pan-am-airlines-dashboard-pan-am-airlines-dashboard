@@ -19,6 +19,14 @@ const getPlanes = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const addPlane = (data) => axios
+  .post(`${baseUrl}/planes.json`, data)
+  .then((response) => {
+    const update = { uid: response.data.name };
+    axios.patch(`${baseUrl}/planes/${response.data.name}.json`, update);
+  })
+  .catch((error) => console.warn(error));
+
 export default {
-  getPlanes,
+  getPlanes, addPlane
 };

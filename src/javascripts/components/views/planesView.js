@@ -14,7 +14,7 @@ const viewPlanes = (user) => {
         if (user) {
           if ($('#planes-btn-area').is(':empty')) {
             $('#planes-btn-area').append(
-              '<button type="button" class="btn btn-success" id="add-airport-btn"><i class="fas fa-plus-circle"></i>Add a New Plane</button>'
+              '<button type="button" class="btn btn-success" id="add-plane-btn"><i class="fas fa-plus-circle"></i>Add a New Plane</button>'
             );
           }
 
