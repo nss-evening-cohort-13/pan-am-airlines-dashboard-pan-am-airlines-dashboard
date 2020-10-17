@@ -14,10 +14,10 @@ const viewPlanes = (user) => {
         $('#planes-area').append(planeCard.planeMaker(plane));
         if (user) {
           $(`#${plane.uid}`).append(
-            `<a href="#" class="card-link update-link" id=${plane.type}>Update Plane</a>`
+            `<a href="#" class="card-link update-link" id=${plane.uid}>Update Plane</a>`
           );
           $(`#${plane.uid}`).append(
-            `<a href="#" class="card-link remove-link" id=${plane.type}>Remove Plane</a>`
+            `<a href="#" class="card-link remove-link" id=${plane.uid}>Remove Plane</a>`
           );
         }
       });
