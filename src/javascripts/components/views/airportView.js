@@ -5,9 +5,6 @@ const showAirport = (user) => {
   $('#app').html('');
   $('#app').append('<div id="airport-btn-area" class="button-area"></div>');
   $('#app').append('<div id="airports-area"></div>');
-  $('#button-area').append(
-    '<button type="button" class="btn btn-success" id="add-airport-btn"><i class="fas fa-plus-circle"></i> Add an Airport</button>'
-  );
   airportData.getAirports().then((response) => {
     if (response.length) {
       $('#airports-area').html('');
@@ -16,7 +13,7 @@ const showAirport = (user) => {
         if (user) {
           if ($('#airport-btn-area').is(':empty')) {
             $('#airport-btn-area').append(
-              '<button type="button" class="btn btn-success" id="add-food-btn"><i class="fas fa-plus-circle"></i>Add a New Airport</button>'
+              '<button type="button" class="btn btn-success" id="add-airport-btn"><i class="fas fa-plus-circle"></i>Add a New Airport</button>'
             );
           }
           $(`#${airport.uid}`).append(
