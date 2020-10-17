@@ -7,7 +7,6 @@ const crewBuilder = (crewObj) => {
    <ul class="list-group list-group-flush">
       <li class="list-group-item">${crewObj.name}</li>
       <li class="list-group-item">${crewObj.role}</li>
-      <li class="list-group-item">${crewObj.uid}</li>
    </ul>
    
    <div class = "card-body" id="${crewObj.uid}">
