@@ -20,7 +20,7 @@ const getPlanes = () => new Promise((resolve, reject) => {
 });
 
 const addPlane = (data) => axios
-  .post(`${baseUrl}/airports.json`, data)
+  .post(`${baseUrl}/planes.json`, data)
   .then((response) => {
     const update = { uid: response.data.name };
     axios.patch(`${baseUrl}/planes/${response.data.name}.json`, update);
