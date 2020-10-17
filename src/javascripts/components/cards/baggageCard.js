@@ -3,11 +3,12 @@ const baggageBuilder = (baggage) => {
       <img src="${baggage.image}" class="card-img-top" alt="...">
       <div class="card-body">
         <h5 class="card-title">${baggage.city}</h5>
-        <p class="card-text">Location: ${baggage.state}</p><p class="card-text">Owner: ${baggage.name}</p>
-        <a href="#" class="card-link">Update Bags</a>
-        <a href="#" class="card-link">Delete Bags</a>
-      </div>
-    <div class="card-body">
+        <div class="card-text">Location: ${baggage.state}</div>
+        <ul class="list-group list-group-flush">
+    <li class="list-group-item">${baggage.name}</li>
+  </ul>
+      
+    <div class="card-body"  id="${baggage.uid}">
       </div>
     </div>`;
 
