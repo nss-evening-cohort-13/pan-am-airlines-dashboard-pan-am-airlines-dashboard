@@ -32,7 +32,7 @@ const showBaggage = (user) => {
 };
 
 const baggageFormView = () => {
-  $('#app').html('<div class = "forms" id = "baggage-form"></div>');
+  $('#app').html('<div class="forms" id="baggage-form"></div>');
   form.baggageFormView();
 };
 
