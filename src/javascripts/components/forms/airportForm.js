@@ -22,7 +22,7 @@ const airportForm = () => {
       <label for="image">Image</label>
       <input type="text" class="form-control" id="image" placeholder="Image address">
       </div>
-      <button id="add-airport-btn" type="submit" class="btn btn-info"><i class="fas fa-plus-circle"></  i>Add Airport</button>
+      <button id="add-airport-btn" type="submit" class="btn btn-info"><i class="fas fa-plus-circle"></i>Add Airport</button>
   </form>`);
 
   $('#add-airport-btn').on('click', (e) => {
