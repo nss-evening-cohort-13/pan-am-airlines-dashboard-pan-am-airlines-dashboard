@@ -19,6 +19,19 @@ const getPlanes = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSinglePlane = (boardUid) => new Promise((resolve, reject) => {
+  axios
+    .get(`${baseUrl}/planes.json?orderBy="uid"&equalTo="${boardUid}"`)
+    .then((response) => {
+      const plane = Object.values(response.data);
+      const thisPlane = plane[0];
+      resolve(thisPlane);
+    })
+    .catch((error) => reject(error));
+});
+
+const updatePlane = (uid, dataObject) => axios.patch(`${baseUrl}/planes/${uid}.json`, dataObject);
+
 const addPlane = (data) => axios
   .post(`${baseUrl}/planes.json`, data)
   .then((response) => {
@@ -28,5 +41,8 @@ const addPlane = (data) => axios
   .catch((error) => console.warn(error));
 
 export default {
-  getPlanes, addPlane
+  getPlanes,
+  addPlane,
+  getSinglePlane,
+  updatePlane
 };
