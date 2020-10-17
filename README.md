@@ -22,7 +22,10 @@ This project was completed as part of our portfolio at Nashville Software School
  - Chris Calhoun
  - Wanda McInturff
 
+# ERD
+![erd](images/PanAmERD.jpeg)
 
 # WIREFRAME
+![wireframe](images/PanAmFigmaSample.png)
 [Check out the rest here](https://www.figma.com/file/9y9GwujaCg3Rzr5w2QCHra/PanAm?node-id=0%3A1)
 
