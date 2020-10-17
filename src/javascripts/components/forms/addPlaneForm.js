@@ -1,47 +1,56 @@
 import planeData from '../../helpers/data/planeData';
 
-const addPlaneForm = () => {
-  $('#app').append(`<form id="addPlaneForm">
-  <h1>Add a Plane</h1>
-  <div id="planeErrorMsg"></div>
-  <div id="planeSuccessMsg"></div>
-  <div class="form-group">
-    <label for="planeName">Name</label>
-    <input type="text" class="form-control" id="planeName" required>
-  </div>
-  <div class="form-group">
-    <label for="planeImage">Image Link</label>
-    <input type="url" class="form-control" id="planeImage" required/>
-  </div>
-  <button type="submit" class="btn btn-outline-dark" id="submitPlane">Submit</button>
-</form>`);
-
-  $('#submitPlane').on('click', (e) => {
+const planeForm = () => {
+  $('#plane-form').html(
+    `<h2>Add A Plane</h2>
+          <div id="success-message"></div>
+          <form>
+            <div id="error-message"></div>
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name">
+            </div>
+            <div class="form-group">
+              <label for="type">Type</label>
+              <input type="text" class="form-control" id="type">
+            </div>
+            <div class="form-group">
+              <label for="image">Image Link</label>
+              <input type="text" class="form-control" id="image">
+            </div>
+            <button id="add-plane-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Add Plane</button>
+          </form>
+          `
+  );
+  $('#add-plane-btn').on('click', (e) => {
     e.preventDefault();
-
     const data = {
-      name: $('#planeName').val(),
-      imageUrl: $('#planeImage').val()
+      name: $('#name').val() || false,
+      type: $('#type').val() || false,
+      image: $('#image').val() || false,
     };
 
-    if (document.getElementById('addPlaneForm').checkValidity()) {
-      $('#planeErrorMsg').html('');
-
+    if (Object.values(data).includes(false)) {
+      $('#error-message').html(
+        '<div class="alert alert-danger" role="alert">Please complete all fields</div>'
+      );
+    } else {
+      $('#error-message').html('');
       planeData.addPlane(data)
         .then(() => {
-          $('#planeSuccessMsg').html('<div class="alert alert-success" role="alert">The plane has been added!</div>');
-        }).catch((error) => console.warn(error));
-
+          $('#success-message').html(
+            '<div class="alert alert-success" role="alert">Your Plane Was Added!</div>'
+          );
+        })
+        .catch((error) => console.warn(error));
       setTimeout(() => {
-        $('#planeSuccessMsg').html('');
-      }, 2000);
-
-      $('#planeName').val('');
-      $('#planeImage').val('');
-    } else {
-      $('#planeErrorMsg').html('<div class="alert alert-danger" role="alert">Please fill out all fields correctly.</div>');
+        $('#sucess-message').html('');
+      }, 3000);
+      $('#name').val('');
+      $('#type').val('');
+      $('#image').val('');
     }
   });
 };
 
-export default { addPlaneForm };
+export default { planeForm };

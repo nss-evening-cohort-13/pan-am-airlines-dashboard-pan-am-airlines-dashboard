@@ -1,9 +1,10 @@
 import home from '../components/views/homeView';
 import airport from '../components/views/airportView';
-import plane from '../components/views/planesView';
+import addplaneView from '../components/views/addPlaneView';
 import Food from '../components/views/foodView';
 import baggage from '../components/views/baggageView';
 import crew from '../components/views/crewView';
+import plane from '../components/views/planesView';
 
 const viewHelper = (id, user) => {
   switch (id) {
@@ -14,6 +15,9 @@ const viewHelper = (id, user) => {
       return airport.showAirport(user);
     case 'planes-link':
       return plane.viewPlanes(user);
+    case 'add-plane-btn':
+      $('#app').html('');
+      return addplaneView.addplaneView();
     case 'foods-link':
       return Food.showFood(user);
     case 'baggage-link':
@@ -22,6 +26,8 @@ const viewHelper = (id, user) => {
       return crew.viewCrew(user);
     case 'add-airport-btn':
       return airport.airportFormView();
+    case 'add-baggage-btn':
+      return baggage.baggageFormView();
     default:
       return console.warn('nothing clicked');
   }
