@@ -14,10 +14,6 @@ const crewForm = () => {
             <label for="role">Role</label>
             <input type="text" class="form-control" id="role">
           </div>
-            <div class="form-group">
-              <label for="uid">uid</label>
-              <input type="text" class="form-control" id="uid">
-            </div>
             <button id="add-crew-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Add  Crew</button>
           </form>
           `
