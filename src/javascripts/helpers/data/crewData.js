@@ -19,6 +19,15 @@ const getCrewMembers = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const addCrew = (data) => axios
+  .post(`${baseUrl}/crew.json`, data)
+  .then((response) => {
+    const update = { uid: response.data.name };
+    axios.patch(`${baseUrl}/crew/${response.data.name}.json`, update);
+  })
+  .catch((error) => console.warn(error));
+
 export default {
   getCrewMembers,
+  addCrew
 };

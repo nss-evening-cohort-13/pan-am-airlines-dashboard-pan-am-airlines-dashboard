@@ -7,6 +7,7 @@ import crew from '../components/views/crewView';
 import plane from '../components/views/planesView';
 import addFoodView from '../components/views/addFoodView';
 import updatePlane from '../components/views/planeUpdateView';
+import addCrewView from '../components/views/addCrewView';
 
 const viewHelper = (id, user, param) => {
   switch (id) {
@@ -29,6 +30,8 @@ const viewHelper = (id, user, param) => {
       return baggage.showBaggage(user);
     case 'crew-link':
       return crew.viewCrew(user);
+    case 'add-crew-btn':
+      return addCrewView.addCrewView();
     case 'add-airport-btn':
       return airport.airportFormView();
     case 'add-baggage-btn':
