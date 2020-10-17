@@ -19,6 +19,14 @@ const getFoodItems = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const addFood = (data) => axios
+  .post(`${baseUrl}/food.json`, data)
+  .then((response) => {
+    const update = { uid: response.data.name };
+    axios.patch(`${baseUrl}/food/${response.data.name}.json`, update);
+  })
+  .catch((error) => console.warn(error));
+
 export default {
-  getFoodItems,
+  getFoodItems, addFood
 };
