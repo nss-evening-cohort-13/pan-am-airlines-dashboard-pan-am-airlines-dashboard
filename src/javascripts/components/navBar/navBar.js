@@ -20,7 +20,10 @@ const myNavbar = (name = 'Guest') => {
         <a class="nav-link" href="#"><i class="far fa-bell"></i> Food Services</a>
       </li>
       <li class="nav-item mx-3" id="baggage-link">
-        <a class="nav-link" href="#"><i class="far fa-bell"></i> Baggage</a>
+        <a class="nav-link" href="#"><i class="fas fa-suitcase-rolling"></i> Baggage</a>
+      </li>
+      <li class="nav-item mx-3" id="crew-link">
+        <a class="nav-link" href="#"><i class="far fa-user"></i> Crew</a>
       </li>
     </ul>
 
