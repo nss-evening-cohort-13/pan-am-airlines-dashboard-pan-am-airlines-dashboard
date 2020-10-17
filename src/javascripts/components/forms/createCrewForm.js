@@ -1,5 +1,5 @@
 // import planeData from '../../helpers/data/planeData';
-import crewData from '../../helpers/data/crewData';
+// import crewData from '../../helpers/data/crewData';
 
 const addBoardForm = () => {
   $('#crewForm').html(`<h1>Add a crew member</h1>
@@ -40,12 +40,12 @@ const addBoardForm = () => {
       $('#user-message').html('<div class="alert alert-danger" role="alert">All fields must have values!</div>');
     } else {
       $('#user-message').html('');
-      crewData
-        .addCrew(crewInfo)
-        .then(() => {
-          $('#user-message').html('<div class="alert alert-success" role="alert">Crew member added</div>');
-        })
-        .catch((error) => console.warn(error));
+      // crewData
+      //   .addCrew(crewInfo)
+      //   .then(() => {
+      //     $('#user-message').html('<div class="alert alert-success" role="alert">Crew member added</div>');
+      //   })
+      // .catch((error) => console.warn(error));
       setTimeout(() => {
         $('#user-message').html('');
       }, 2000);
