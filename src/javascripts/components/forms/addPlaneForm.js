@@ -11,8 +11,8 @@ const planeForm = () => {
               <input type="text" class="form-control" id="name">
             </div>
             <div class="form-group">
-              <label for="location">Location</label>
-              <input type="text" class="form-control" id="location">
+              <label for="type">Type</label>
+              <input type="text" class="form-control" id="type">
             </div>
             <div class="form-group">
               <label for="image">Image Link</label>
@@ -26,7 +26,7 @@ const planeForm = () => {
     e.preventDefault();
     const data = {
       name: $('#name').val() || false,
-      location: $('#location').val() || false,
+      type: $('#type').val() || false,
       image: $('#image').val() || false,
     };
 
@@ -47,7 +47,7 @@ const planeForm = () => {
         $('#sucess-message').html('');
       }, 3000);
       $('#name').val('');
-      $('#location').val('');
+      $('#type').val('');
       $('#image').val('');
     }
   });
