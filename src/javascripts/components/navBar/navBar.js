@@ -19,6 +19,9 @@ const myNavbar = (name = 'Guest') => {
       <li class="nav-item mx-3" id="foods-link">
         <a class="nav-link" href="#"><i class="far fa-bell"></i> Food Services</a>
       </li>
+      <li class="nav-item mx-3" id="baggage-link">
+        <a class="nav-link" href="#"><i class="far fa-bell"></i> Baggage</a>
+      </li>
     </ul>
 
         <ul class="navbar-nav ml-auto">
