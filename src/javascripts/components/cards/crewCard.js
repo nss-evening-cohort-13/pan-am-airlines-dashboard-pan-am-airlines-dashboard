@@ -1,7 +1,7 @@
 const crewBuilder = (crewObj) => {
   const domString = `<div class="card" style="width: 18rem;">
   <div class="card-body">
-   <h5 class="card-title">"PanAm Flight Crew</h5> 
+   <h5 class="card-title">PanAm Flight Crew</h5> 
   </div>
     
    <ul class="list-group list-group-flush">
@@ -10,7 +10,7 @@ const crewBuilder = (crewObj) => {
       <li class="list-group-item">${crewObj.uid}</li>
    </ul>
    
-   <div class = "card-body id="${crewObj.uid}">
+   <div class = "card-body" id="${crewObj.uid}">
    </div>
    </div>`;
 
