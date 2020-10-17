@@ -3,6 +3,7 @@ import airport from '../components/views/airportView';
 import addplaneView from '../components/views/addPlaneView';
 import Food from '../components/views/foodView';
 import baggage from '../components/views/baggageView';
+import crew from '../components/views/crewView';
 import plane from '../components/views/planesView';
 
 const viewHelper = (id, user) => {
@@ -21,6 +22,8 @@ const viewHelper = (id, user) => {
       return Food.showFood(user);
     case 'baggage-link':
       return baggage.showBaggage(user);
+    case 'crew-link':
+      return crew.viewCrew(user);
     case 'add-airport-btn':
       return airport.airportFormView();
     case 'add-baggage-btn':
