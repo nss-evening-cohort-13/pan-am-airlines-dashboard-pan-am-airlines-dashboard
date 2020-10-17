@@ -19,6 +19,16 @@ const getAirports = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const addAirport = (data) => axios
+  .post(`${baseUrl}/airports.json`, data)
+  .then((response) => {
+    const update = { uid: response.data.name };
+    axios.patch(`${baseUrl}/airports/${response.data.name}.json`, update);
+  })
+  .catch((error) => console.warn(error));
+
+
 export default {
   getAirports,
+  addAirport
 };
