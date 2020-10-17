@@ -2,7 +2,7 @@ import axios from 'axios';
 import apiKeys from './apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
-// CREW ROSTER - AN EMPTY ARRAY TO PUSH CREWOBJ JSON TO //
+
 const getCrewMembers = () => new Promise((resolve, reject) => {
   axios
     .get(`${baseUrl}/crew.json`)
