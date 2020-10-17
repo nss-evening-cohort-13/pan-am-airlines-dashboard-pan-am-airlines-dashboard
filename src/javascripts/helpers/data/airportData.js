@@ -26,8 +26,6 @@ const addAirport = (data) => axios
     axios.patch(`${baseUrl}/airports/${response.data.name}.json`, update);
   })
   .catch((error) => console.warn(error));
-
-
 export default {
   getAirports,
   addAirport

@@ -1,5 +1,6 @@
 import airportData from '../../helpers/data/airportData';
 import airportCard from '../cards/airportCard';
+import form from '../forms/airportForm';
 
 const showAirport = (user) => {
   $('#app').html('');
@@ -30,6 +31,12 @@ const showAirport = (user) => {
   });
 };
 
+const airportFormView = () => {
+  $('#app').html('<div class = "forms" id = "airport-form"></div>');
+  form.airportForm();
+};
+
 export default {
   showAirport,
+  airportFormView
 };

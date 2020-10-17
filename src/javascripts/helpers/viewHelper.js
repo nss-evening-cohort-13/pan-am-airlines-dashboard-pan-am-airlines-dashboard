@@ -17,9 +17,8 @@ const viewHelper = (id, user) => {
       return Food.showFood(user);
     case 'baggage-link':
       return baggage.showBaggage(user);
-    case 'add-food-button':
-      return baggage.showBaggage(user);
-
+    case 'add-airport-btn':
+      return airport.airportFormView();
     default:
       return console.warn('nothing clicked');
   }
