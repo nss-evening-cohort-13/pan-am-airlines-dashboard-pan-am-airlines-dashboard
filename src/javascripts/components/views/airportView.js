@@ -14,13 +14,11 @@ const showAirport = (user) => {
       response.forEach((airport) => {
         $('#airports-area').append(airportCard.airportBuilder(airport, user));
         if (user) {
-
-          if ($('#food-btn-area').is(':empty')) {
-            $('#food-btn-area').append(
-              '<button type="button" class="btn btn-success" id="add-food-btn"><i class="fas fa-plus-circle"></i>Add a Food Item</button>'
+          if ($('#airport-btn-area').is(':empty')) {
+            $('#airport-btn-area').append(
+              '<button type="button" class="btn btn-success" id="add-food-btn"><i class="fas fa-plus-circle"></i>Add a New Airport</button>'
             );
           }
-
           $(`#${airport.uid}`).append(
             `<a href="#" class="card-link update-link" id=${airport.IATA}>Update Airport</a>`
           );
