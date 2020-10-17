@@ -23,6 +23,8 @@ const viewHelper = (id, user) => {
       return baggage.showBaggage(user);
     case 'add-airport-btn':
       return airport.airportFormView();
+    case 'add-baggage-btn':
+      return baggage.baggageFormView();
     default:
       return console.warn('nothing clicked');
   }
