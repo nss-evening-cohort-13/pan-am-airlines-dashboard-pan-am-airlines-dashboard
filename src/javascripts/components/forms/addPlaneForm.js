@@ -45,7 +45,7 @@ const planeForm = () => {
         .catch((error) => console.warn(error));
       setTimeout(() => {
         $('#sucess-message').html('');
-      }, 30000);
+      }, 3000);
       $('#name').val('');
       $('#location').val('');
       $('#image').val('');
