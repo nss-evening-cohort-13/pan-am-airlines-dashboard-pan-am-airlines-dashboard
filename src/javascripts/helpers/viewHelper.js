@@ -6,9 +6,10 @@ import baggage from '../components/views/baggageView';
 import crew from '../components/views/crewView';
 import plane from '../components/views/planesView';
 import addFoodView from '../components/views/addFoodView';
+import updatePlane from '../components/views/planeUpdateView';
 import addCrewView from '../components/views/addCrewView';
 
-const viewHelper = (id, user) => {
+const viewHelper = (id, user, param) => {
   switch (id) {
     case '#':
     case 'home':
@@ -35,6 +36,8 @@ const viewHelper = (id, user) => {
       return airport.airportFormView();
     case 'add-baggage-btn':
       return baggage.baggageFormView();
+    case 'update-plane-link':
+      return updatePlane.updatePlane(param);
     default:
       return console.warn('nothing clicked');
   }
@@ -47,6 +50,10 @@ const viewListener = (view, user) => {
   });
   $('body').on('click', '.btn-success', (e) => {
     viewHelper(e.currentTarget.id);
+  });
+  $('body').on('click', '.update-link', (e) => {
+    const planeUid = e.currentTarget.id;
+    viewHelper('update-plane-link', user, planeUid);
   });
 };
 
