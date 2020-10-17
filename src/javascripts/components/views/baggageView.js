@@ -2,6 +2,7 @@ import baggageData from '../../helpers/data/baggageData';
 import baggageCard from '../cards/baggageCard';
 
 const showBaggage = (user) => {
+  $('#app').html('');
   $('#app').append('<div id="baggage-btn-area" class="button-area"></div>');
   $('#app').append('<div id="baggage-area"></div>');
 

@@ -8,21 +8,17 @@ const viewHelper = (id, user) => {
   switch (id) {
     case '#':
     case 'home':
-      $('#app').html('');
       return home.showHomepage();
     case 'airports-link':
-      $('#app').html('');
       return airport.showAirport(user);
     case 'planes-link':
-      $('#app').html('');
       return plane.viewPlanes(user);
     case 'foods-link':
-      $('#app').html('');
       return Food.showFood(user);
     case 'baggage-link':
-      $('#app').html('');
       return baggage.showBaggage(user);
-
+    case 'add-airport-btn':
+      return airport.airportFormView();
     default:
       return console.warn('nothing clicked');
   }
@@ -33,7 +29,9 @@ const viewListener = (view, user) => {
   $('body').on('click', 'li.nav-item', (e) => {
     viewHelper(e.currentTarget.id, user);
   });
-  $('body').on('click,');
+  $('body').on('click', '.btn-success', (e) => {
+    viewHelper(e.currentTarget.id);
+  });
 };
 
 export default { viewListener };
