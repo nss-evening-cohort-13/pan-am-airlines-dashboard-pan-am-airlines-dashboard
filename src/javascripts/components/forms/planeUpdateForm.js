@@ -17,7 +17,7 @@ const updatePlaneForm = (obj) => {
       <label for="image">Image Link</label>
       <input type="text" class="form-control" id="image">
     </div>
-    <button id="add-plane-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Add Plane</button>
+    <button id="add-plane-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Plane</button>
   </form>
   `);
   $('#add-plane-btn').on('click', (e) => {
