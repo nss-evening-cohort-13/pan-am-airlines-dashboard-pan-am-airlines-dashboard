@@ -32,7 +32,7 @@ const foodForm = () => {
       cost: $('#cost').val() || false,
       description: $('#description').val() || false,
       name: $('#name').val() || false,
-      image: $('#image').val() || false,
+      image_URL: $('#image').val() || false,
     };
 
     if (Object.values(data).includes(false)) {
