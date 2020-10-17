@@ -1,4 +1,7 @@
 # pan-am-airlines-dashboard
+
+![giffy](images/demoPanAm.gif)
+
 # DESCRIPTION
  The scenario we were given is that PanAm airlines has relaunched. Our team was tasked with designing a dashboard an administrator could use to view, add, edit, or update features such as planes, crew, food services, and airports.
 
