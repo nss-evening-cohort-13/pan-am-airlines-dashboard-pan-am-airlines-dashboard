@@ -23,7 +23,6 @@ const crewForm = () => {
     const data = {
       name: $('#name').val() || false,
       role: $('#role').val() || false,
-      uid: $('#uid').val() || false,
     };
 
     if (Object.values(data).includes(false)) {
@@ -44,7 +43,6 @@ const crewForm = () => {
       }, 3000);
       $('#name').val('');
       $('#role').val('');
-      $('#uid').val('');
     }
   });
 };
