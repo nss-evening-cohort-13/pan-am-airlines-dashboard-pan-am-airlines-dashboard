@@ -26,7 +26,16 @@ const showAirport = (user) => {
         }
       });
     } else {
-      $('#airports-area').append('<h1>No Airports!</h1>');
+      if (user) {
+        if ($('#airport-btn-area').is(':empty')) {
+          $('#airport-btn-area').append(
+            '<button type="button" class="btn btn-success" id="add-airport-btn"><i class="fas fa-plus-circle"></i>Add a New Airport</button>'
+          );
+        }
+      }
+      if ($('#airports-area').is(':empty')) {
+        $('#airports-area').append('<h1>No Airports!</h1>');
+      }
     }
   });
 };

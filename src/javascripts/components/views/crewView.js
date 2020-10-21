@@ -26,7 +26,16 @@ const viewCrew = (user) => {
         }
       });
     } else {
-      $('#crew-area').append('<h1>No Crew!</h1>');
+      if (user) {
+        if ($('#crew-btn-area').is(':empty')) {
+          $('#crew-btn-area').append(
+            '<button type="button" class="btn btn-success" id="add-crew-btn"><i class="fas fa-plus-circle"></i>Add a Crew Member</button>'
+          );
+        }
+      }
+      if ($('#crew-area').is(':empty')) {
+        $('#crew-area').append('<h1>No Crew!</h1>');
+      }
     }
   });
 };

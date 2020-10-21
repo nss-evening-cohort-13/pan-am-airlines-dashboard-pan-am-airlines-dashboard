@@ -27,7 +27,16 @@ const showBaggage = (user) => {
         }
       });
     } else {
-      $('#baggage-area').append('<h1>No Food!</h1>');
+      if (user) {
+        if ($('#baggage-btn-area').is(':empty')) {
+          $('#baggage-btn-area').append(
+            '<button type="button" class="btn btn-success" id="add-baggage-btn"><i class="fas fa-plus-circle"></i>Add a Baggage</button>'
+          );
+        }
+      }
+      if ($('#baggage-area').is(':empty')) {
+        $('#baggage-area').append('<h1>No Baggage!</h1>');
+      }
     }
   });
 };

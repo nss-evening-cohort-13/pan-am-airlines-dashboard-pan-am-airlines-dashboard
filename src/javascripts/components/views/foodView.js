@@ -26,7 +26,16 @@ const showFood = (user) => {
         }
       });
     } else {
-      $('#food-area').append('<h1>No Food!</h1>');
+      if (user) {
+        if ($('#food-btn-area').is(':empty')) {
+          $('#food-btn-area').append(
+            '<button type="button" class="btn btn-success" id="add-food-btn"><i class="fas fa-plus-circle"></i>Add a Food</button>'
+          );
+        }
+      }
+      if ($('#food-area').is(':empty')) {
+        $('#food-area').append('<h1>No Food!</h1>');
+      }
     }
   });
 };
