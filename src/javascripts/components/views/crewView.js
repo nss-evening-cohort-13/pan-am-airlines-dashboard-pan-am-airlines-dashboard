@@ -17,15 +17,14 @@ const viewCrew = (user) => {
               '<button type="button" class="btn btn-success" id="add-crew-btn"><i class="fas fa-plus-circle"></i>Add Crew</button>'
             );
           }
-          $(`#${crewObj.uid}`).append(
-            `<a href="#" class="card-link update-link" id=${crewObj.name}>Update Crew</a>`
-          );
-          $(`#${crewObj.uid}`).append(
-            `<a href="#" class="card-link remove-link" id=${crewObj.name}>Remove Crew</a>`
-          );
         }
       });
-    } else {
+    } else if (user) {
+      if ($('#crew-btn-area').is(':empty')) {
+        $('#crew-btn-area').append(
+          '<button type="button" class="btn btn-success" id="add-crew-btn"><i class="fas fa-plus-circle"></i>Add Crew</button>'
+        );
+      }
       $('#crew-area').append('<h1>No Crew!</h1>');
     }
   });

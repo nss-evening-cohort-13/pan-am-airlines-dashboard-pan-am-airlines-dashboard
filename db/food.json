@@ -1,0 +1,16 @@
+{
+    "-MJs-X1RZlley4DoP-ue" : {
+      "cost" : "$5.99",
+      "description" : "Green Eggs and Ham",
+      "image_URL" : "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.davisenterprise.com%2Ffeatures%2Ffood-and-drink%2Ffrom-the-ground-up-celebrate-dr-seuss-with-green-eggs-and-ham-cookbook%2F&psig=AOvVaw1hpSjnjiCNZY2o8mlv4dqa&ust=1603048849418000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCLiRy7usvOwCFQAAAAAdAAAAABAF",
+      "name" : "Breakfast",
+      "uid" : "-MJs-X1RZlley4DoP-ue"
+    },
+    "-MJs-p8lafVoVgQetoIz" : {
+      "cost" : "$5.99",
+      "description" : "Ham and Eggs",
+      "image_URL" : "https://upload.wikimedia.org/wikipedia/commons/f/fa/Ham_and_eggs_over_easy.jpg",
+      "name" : "Breakfast",
+      "uid" : "-MJs-p8lafVoVgQetoIz"
+    }
+  }

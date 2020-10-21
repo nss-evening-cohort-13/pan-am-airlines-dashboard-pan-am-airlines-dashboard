@@ -1,4 +1,14 @@
+import firebase from 'firebase/app';
+import 'firebase/auth';
+
 const baggageBuilder = (baggage) => {
+  let buttons = '';
+  const user = firebase.auth().currentUser;
+  if (user) {
+    buttons += `<a href="#" id="${baggage.uid}" class="btn btn-info update-baggage"><i class="far fa-edit"></i> Update baggage</a>
+    <a href="#" id="${baggage.uid}" class="btn btn-danger delete-baggage">Delete baggage</a>
+  `;
+  }
   const domString = `<div class="card" style="width: 18rem;">
       <img src="${baggage.image}" class="card-img-top" alt="...">
       <div class="card-body">
@@ -10,6 +20,7 @@ const baggageBuilder = (baggage) => {
       
     <div class="card-body"  id="${baggage.uid}">
       </div>
+      ${buttons}
     </div>`;
 
   return domString;

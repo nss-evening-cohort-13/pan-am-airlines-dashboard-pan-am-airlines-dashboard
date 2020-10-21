@@ -17,16 +17,14 @@ const viewPlanes = (user) => {
               '<button type="button" class="btn btn-success" id="add-plane-btn"><i class="fas fa-plus-circle"></i>Add a New Plane</button>'
             );
           }
-
-          $(`#${plane.uid}`).append(
-            `<a href="#" class="card-link update-link" id=${plane.uid}>Update Plane</a>`
-          );
-          $(`#${plane.uid}`).append(
-            `<a href="#" class="card-link remove-link" id=${plane.uid}>Remove Plane</a>`
-          );
         }
       });
-    } else {
+    } else if (user) {
+      if ($('#planes-btn-area').is(':empty')) {
+        $('#planes-btn-area').append(
+          '<button type="button" class="btn btn-success" id="add-plane-btn"><i class="fas fa-plus-circle"></i>Add a New Plane</button>'
+        );
+      }
       $('#planes-area').append('<h1>No Planes!</h1>');
     }
   });
