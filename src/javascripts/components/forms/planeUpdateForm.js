@@ -1,7 +1,7 @@
 import planeData from '../../helpers/data/planeData';
 
 const updatePlaneForm = (obj) => {
-  $('#update-pin').html(`<h2>Update A Plane</h2>
+  $('#update-plane').html(`<h2>Update A Plane</h2>
   <div id="success-message"></div>
   <form>
     <div id="error-message"></div>
