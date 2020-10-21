@@ -17,11 +17,11 @@ const showFood = (user) => {
               '<button type="button" class="btn btn-success" id="add-food-btn"><i class="fas fa-plus-circle"></i>Add a Food Item</button>'
             );
           }
-          $(`#${foodItem.food_id}`).append(
-            `<a href="#" class="card-link update-link" id=${foodItem.food_id}>Update Item</a>`
+          $(`#${foodItem.uid}`).append(
+            `<a href="#" class="card-link update-link" id=${foodItem.uid}>Update Item</a>`
           );
-          $(`#${foodItem.food_id}`).append(
-            `<a href="#" class="card-link remove-link" id=${foodItem.food_id}>Remove Item</a>`
+          $(`#${foodItem.uid}`).append(
+            `<a href="#" class="card-link remove-link" id=${foodItem.uid}>Remove Item</a>`
           );
         }
       });

@@ -4,11 +4,10 @@ const foodCardBuilder = (foodItem) => {
     <div class="card-body">
       <h5 class="card-title">${foodItem.name}</h5>
       <h5 class="card-title">${foodItem.cost}</h5>
-    </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">${foodItem.description}</li>
     </ul>
-    <div class="card-body" id="${foodItem.food_id}">
+    <div id="${foodItem.food_id}">
     </div>
   </div>`;
   return domString;

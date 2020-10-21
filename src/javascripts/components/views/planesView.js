@@ -17,7 +17,6 @@ const viewPlanes = (user) => {
               '<button type="button" class="btn btn-success" id="add-plane-btn"><i class="fas fa-plus-circle"></i>Add a New Plane</button>'
             );
           }
-
           $(`#${plane.uid}`).append(
             `<a href="#" class="card-link update-link" id=${plane.uid}>Update Plane</a>`
           );
