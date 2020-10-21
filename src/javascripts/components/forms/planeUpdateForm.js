@@ -7,15 +7,15 @@ const updatePlaneForm = (obj) => {
     <div id="error-message"></div>
     <div class="form-group">
       <label for="name">Name</label>
-      <input type="text" class="form-control" id="name">
+      <input type="text" value="${obj.name}" class="form-control" id="name">
     </div>
     <div class="form-group">
       <label for="type">Type</label>
-      <input type="text" class="form-control" id="type">
+      <input type="text" class="form-control" value="${obj.type}" id="type">
     </div>
     <div class="form-group">
       <label for="image">Image Link</label>
-      <input type="text" class="form-control" id="image">
+      <input type="text" value="${obj.image}" class="form-control" id="image">
     </div>
     <button id="add-plane-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Plane</button>
   </form>
