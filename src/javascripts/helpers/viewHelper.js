@@ -8,6 +8,7 @@ import plane from '../components/views/planesView';
 import addFoodView from '../components/views/addFoodView';
 import updatePlane from '../components/views/planeUpdateView';
 import addCrewView from '../components/views/addCrewView';
+import updateFoodView from '../components/views/foodUpdateView';
 
 const viewHelper = (id, user, param) => {
   switch (id) {
@@ -38,6 +39,8 @@ const viewHelper = (id, user, param) => {
       return baggage.baggageFormView();
     case 'update-plane-link':
       return updatePlane.updatePlane(param);
+    case 'update-food-link':
+      return updateFoodView.updateFoodView(param);
     default:
       return console.warn('nothing clicked');
   }
@@ -54,6 +57,10 @@ const viewListener = (view, user) => {
   $('body').on('click', '.update-plane', (e) => {
     const planeUid = e.currentTarget.id;
     viewHelper('update-plane-link', user, planeUid);
+  });
+  $('body').on('click', '.update-food', (e) => {
+    const foodUid = e.currentTarget.id;
+    viewHelper('update-food-link', user, foodUid);
   });
 };
 
