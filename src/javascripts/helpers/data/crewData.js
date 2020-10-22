@@ -29,8 +29,11 @@ const addCrew = (data) => axios
 
 const deleteCrewMember = (crewMemberUid) => axios.delete(`${baseUrl}/crew/${crewMemberUid}.json`);
 
+const updateCrewMember = (uid, dataObject) => axios.patch(`${baseUrl}/planes/${uid}.json`, dataObject);
+
 export default {
   getCrewMembers,
   addCrew,
-  deleteCrewMember
+  deleteCrewMember,
+  updateCrewMember
 };
