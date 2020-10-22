@@ -19,6 +19,8 @@ const getFoodItems = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const deleteFood = (uid) => axios.delete(`${baseUrl}/food/${uid}.json`);
+
 const addFood = (data) => axios
   .post(`${baseUrl}/food.json`, data)
   .then((response) => {
@@ -28,5 +30,5 @@ const addFood = (data) => axios
   .catch((error) => console.warn(error));
 
 export default {
-  getFoodItems, addFood
+  getFoodItems, addFood, deleteFood
 };
