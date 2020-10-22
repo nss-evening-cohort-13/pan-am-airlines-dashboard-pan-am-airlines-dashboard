@@ -20,7 +20,7 @@ const updateAirportForm = (airportObj) => {
         </div>
         <div class="form-group">
           <label for="image">Image</label>
-          <input type="image" class="form-control" id="image" value="${airportObj.image}" placeholder="Example: Image Address">
+          <input type="text" class="form-control" id="image" value="${airportObj.image}" placeholder="Example: Image Address">
         </div>
        <button id="update-airport-btn" type="submit" class="btn btn-info"><i class="fas fa-plus-circle"></i> Update Airport</button>
       </form>
