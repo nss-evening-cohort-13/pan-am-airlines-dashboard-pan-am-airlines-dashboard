@@ -51,7 +51,7 @@ const viewListener = (view, user) => {
   $('body').on('click', '.btn-success', (e) => {
     viewHelper(e.currentTarget.id);
   });
-  $('body').on('click', '.update-link', (e) => {
+  $('body').on('click', '.update-plane', (e) => {
     const planeUid = e.currentTarget.id;
     viewHelper('update-plane-link', user, planeUid);
   });
