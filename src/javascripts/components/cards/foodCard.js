@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import foodData from '../../helpers/data/foodData';
 
 const foodCardBuilder = (foodItem) => {
   let buttons = '';
@@ -9,7 +10,7 @@ const foodCardBuilder = (foodItem) => {
     <a href="#" id="${foodItem.uid}" class="btn btn-danger delete-food">Delete food</a>
   `;
   }
-  const domString = `<div class="card" style="width: 18rem;">
+  const domString = `<div class="card food" id="food-${foodItem.uid}" style="width: 18rem;">
     <img src="${foodItem.image_URL}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title">${foodItem.name}</h5>
@@ -22,6 +23,12 @@ const foodCardBuilder = (foodItem) => {
     </div>
     ${buttons}
   </div>`;
+  $('body').on('click', '.delete-food', (e) => {
+    e.stopImmediatePropagation();
+    const uid = e.currentTarget.id;
+    $(`.card#food-${uid}`).remove();
+    foodData.deleteFood(uid);
+  });
   return domString;
 };
 export default { foodCardBuilder };
