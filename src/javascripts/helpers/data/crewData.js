@@ -27,7 +27,10 @@ const addCrew = (data) => axios
   })
   .catch((error) => console.warn(error));
 
+const deleteCrewMember = (crewMemberUid) => axios.delete(`${baseUrl}/crew/${crewMemberUid}.json`);
+
 export default {
   getCrewMembers,
-  addCrew
+  addCrew,
+  deleteCrewMember
 };
