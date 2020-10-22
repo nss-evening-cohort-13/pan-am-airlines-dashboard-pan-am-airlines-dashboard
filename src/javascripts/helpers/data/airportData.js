@@ -26,7 +26,11 @@ const addAirport = (data) => axios
     axios.patch(`${baseUrl}/airports/${response.data.name}.json`, update);
   })
   .catch((error) => console.warn(error));
+
+const deleteAirport = (firebaseKey) => axios.delete(`${baseUrl}/airports/${firebaseKey}.json`);
+
 export default {
   getAirports,
-  addAirport
+  addAirport,
+  deleteAirport
 };
