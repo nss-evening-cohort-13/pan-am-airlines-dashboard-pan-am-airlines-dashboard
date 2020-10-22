@@ -19,6 +19,17 @@ const getFoodItems = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSingleFoodItem = (foodUid) => new Promise((resolve, reject) => {
+  axios
+    .get(`${baseUrl}/food.json?orderBy="uid"&equalTo="${foodUid}"`)
+    .then((response) => {
+      const food = Object.values(response.data);
+      const thisFood = food[0];
+      resolve(thisFood);
+    })
+    .catch((error) => reject(error));
+});
+
 const deleteFood = (uid) => axios.delete(`${baseUrl}/food/${uid}.json`);
 
 const addFood = (data) => axios
@@ -29,6 +40,12 @@ const addFood = (data) => axios
   })
   .catch((error) => console.warn(error));
 
+const updateFood = (uid, foodObject) => axios.patch(`${baseUrl}/food/${uid}.json`, foodObject);
+
 export default {
-  getFoodItems, addFood, deleteFood
+  getFoodItems,
+  addFood,
+  updateFood,
+  getSingleFoodItem,
+  deleteFood
 };
