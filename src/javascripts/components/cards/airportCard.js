@@ -24,7 +24,6 @@ const airportBuilder = (airport) => {
   ${buttons}
 </div>`;
   $('body').on('click', '.delete-airport', (e) => {
-    console.warn('dlete');
     e.stopImmediatePropagation();
     const uid = e.currentTarget.id;
     $(`.card#airport-${uid}`).remove();
