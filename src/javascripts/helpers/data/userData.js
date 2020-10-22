@@ -50,4 +50,8 @@ const setCurrentUser = (userObj) => {
   return user;
 };
 
-export default { setCurrentUser, getAllUsers, checkIfUserExistsInFirebase };
+export default {
+  setCurrentUser,
+  getAllUsers,
+  checkIfUserExistsInFirebase,
+};

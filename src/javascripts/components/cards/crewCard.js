@@ -1,5 +1,6 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import deleteCrewMember from '../../helpers/data/crewData';
 
 const crewBuilder = (crewObj) => {
   let buttons = '';
@@ -9,7 +10,7 @@ const crewBuilder = (crewObj) => {
     <a href="#" id="${crewObj.uid}" class="btn btn-danger delete-crew">Delete crew</a>
   `;
   }
-  const domString = `<div class="card" style="width: 18rem;">
+  const domString = `<div class="card crew" id="crew-${crewObj.uid}" style="width: 18rem;">
   <div class="card-body">
    <h5 class="card-title">PanAm Flight Crew</h5> 
   </div>
@@ -23,6 +24,13 @@ const crewBuilder = (crewObj) => {
    </div>
    ${buttons}
    </div>`;
+
+  $('body').on('click', '.delete-crew', (e) => {
+    e.stopImmediatePropagation();
+    const crewUid = e.currentTarget.id;
+    $(`.card#crew-${crewUid}`).remove();
+    deleteCrewMember.deleteCrewMember(crewUid);
+  });
 
   return domString;
 };
