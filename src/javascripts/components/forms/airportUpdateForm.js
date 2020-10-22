@@ -1,8 +1,8 @@
 import airportData from '../../helpers/data/airportData';
 
-const updateAirport = (airportObj) => {
+const updateAirportForm = (airportObj) => {
   $('#update-airport-form').html(`
-      <h2>Add A New Aiport</h2>
+      <h2>Update Aiport</h2>
       <div id="success-message"></div>
       <form>
         <div id="error-message"></div>
@@ -34,7 +34,6 @@ const updateAirport = (airportObj) => {
       state: $('#state').val() || false,
       IATA: $('#IATA').val() || false,
       image: $('#image').val() || false
-
     };
 
     if (Object.values(data).includes(false)) {
@@ -42,7 +41,7 @@ const updateAirport = (airportObj) => {
     } else {
       $('#error-message').html('');
 
-      airportData.updateAirport(airportObj.firebaseKey, data)
+      airportData.updateAirport(airportObj.uid, data)
         .then(() => {
           $('#success-message').html('<div class="alert alert-success" role="alert">Your Airport Was Updated!</div>');
 
@@ -54,4 +53,4 @@ const updateAirport = (airportObj) => {
   });
 };
 
-export default { updateAirport };
+export default { updateAirportForm };
