@@ -20,7 +20,7 @@ const getCrewMembers = () => new Promise((resolve, reject) => {
 });
 
 const getSingleCrewMember = (crewMemberUid) => new Promise((resolve, reject) => {
-  axios.get(`${baseUrl}/crew.json?orderBy="uid"&equalTo=${crewMemberUid}"`)
+  axios.get(`${baseUrl}/crew.json?orderBy="uid"&equalTo="${crewMemberUid}"`)
     .then((response) => {
       const crew = Object.values(response.data);
       const thisCrewMember = crew[0];

@@ -13,7 +13,7 @@ const updateCrewForm = (obj) => {
       <label for="role">Role</label>
       <input type="text" class="form-control" value="${obj.role}" id="role">
     </div>
-    <button id="add-plane-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Plane</button>
+    <button id="add-crew-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Crew</button>
   </form>
   `);
   $('#add-crew-btn').on('click', (e) => {
