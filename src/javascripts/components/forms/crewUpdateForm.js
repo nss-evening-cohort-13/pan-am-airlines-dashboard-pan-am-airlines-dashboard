@@ -1,7 +1,7 @@
-import planeData from '../../helpers/data/planeData';
+import crewData from '../../helpers/data/crewData';
 
-const updatePlaneForm = (obj) => {
-  $('#update-plane').html(`<h2>Update A Plane</h2>
+const updateCrewForm = (obj) => {
+  $('#update-crew').html(`<h2>Update A Crew</h2>
   <div id="success-message"></div>
   <form>
     <div id="error-message"></div>
@@ -10,22 +10,17 @@ const updatePlaneForm = (obj) => {
       <input type="text" value="${obj.name}" class="form-control" id="name">
     </div>
     <div class="form-group">
-      <label for="type">Type</label>
-      <input type="text" class="form-control" value="${obj.type}" id="type">
+      <label for="role">Role</label>
+      <input type="text" class="form-control" value="${obj.role}" id="role">
     </div>
-    <div class="form-group">
-      <label for="image">Image Link</label>
-      <input type="text" value="${obj.image}" class="form-control" id="image">
-    </div>
-    <button id="add-plane-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Plane</button>
+    <button id="add-crew-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Crew</button>
   </form>
   `);
-  $('#add-plane-btn').on('click', (e) => {
+  $('#add-crew-btn').on('click', (e) => {
     e.preventDefault();
     const information = {
       name: $('#name').val() || false,
-      type: $('#type').val() || false,
-      image: $('#image').val() || false,
+      role: $('#role').val() || false,
     };
     if (Object.values(information).includes(false)) {
       $('#error-message').html(
@@ -33,8 +28,8 @@ const updatePlaneForm = (obj) => {
       );
     } else {
       $('#error-message').html('');
-      planeData
-        .updatePlane(obj.uid, information)
+      crewData
+        .updateCrewMember(obj.uid, information)
         .then(() => {
           $('#success-message').html(
             '<div class="alert alert-success" role="alert">Info Updated!</div>'
@@ -49,4 +44,4 @@ const updatePlaneForm = (obj) => {
   });
 };
 
-export default { updatePlaneForm };
+export default { updateCrewForm };
