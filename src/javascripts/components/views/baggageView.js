@@ -18,16 +18,15 @@ const showBaggage = (user) => {
               '<button type="button" class="btn btn-success" id="add-baggage-btn"><i class="fas fa-plus-circle"></i>Add Baggage</button>'
             );
           }
-          $(`#${baggage.uid}`).append(
-            `<a href="#" class="card-link update-link" id=${baggage.name}>Update Item</a>`
-          );
-          $(`#${baggage.uid}`).append(
-            `<a href="#" class="card-link remove-link" id=${baggage.name}>Remove Item</a>`
-          );
         }
       });
-    } else {
-      $('#baggage-area').append('<h1>No Food!</h1>');
+    } else if (user) {
+      if ($('#baggage-btn-area').is(':empty')) {
+        $('#baggage-btn-area').append(
+          '<button type="button" class="btn btn-success" id="add-baggage-btn"><i class="fas fa-plus-circle"></i>Add Baggage</button>'
+        );
+      }
+      $('#baggage-area').append('<h1>No Baggage!</h1>');
     }
   });
 };
