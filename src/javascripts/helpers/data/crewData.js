@@ -19,6 +19,16 @@ const getCrewMembers = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSingleCrewMember = (crewMemberUid) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/crew.json?orderBy="uid"&equalTo="${crewMemberUid}"`)
+    .then((response) => {
+      const crew = Object.values(response.data);
+      const thisCrewMember = crew[0];
+      resolve(thisCrewMember);
+    })
+    .catch((error) => reject(error));
+});
+
 const addCrew = (data) => axios
   .post(`${baseUrl}/crew.json`, data)
   .then((response) => {
@@ -29,8 +39,12 @@ const addCrew = (data) => axios
 
 const deleteCrewMember = (crewMemberUid) => axios.delete(`${baseUrl}/crew/${crewMemberUid}.json`);
 
+const updateCrewMember = (uid, dataObject) => axios.patch(`${baseUrl}/crew/${uid}.json`, dataObject);
+
 export default {
   getCrewMembers,
   addCrew,
-  deleteCrewMember
+  deleteCrewMember,
+  updateCrewMember,
+  getSingleCrewMember
 };
