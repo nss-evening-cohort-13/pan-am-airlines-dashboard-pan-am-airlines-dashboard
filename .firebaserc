@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "pan-am-dashboard"
+    "default": "pan-am-dashboard",
+    "production": "fir-pan-am"
   }
 }
