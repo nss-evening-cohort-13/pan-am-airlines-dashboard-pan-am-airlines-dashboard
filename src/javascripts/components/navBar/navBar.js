@@ -4,7 +4,6 @@ const myNavbar = (name = 'Guest') => {
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle nav">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
       <li class="nav-item mx-3"  id="home">
@@ -12,6 +11,9 @@ const myNavbar = (name = 'Guest') => {
       </li>
       <li class="nav-item mx-3"  id="airports-link">
         <a class="nav-link" href="#"><i class="fas fa-clipboard"></i> Airports</a>
+      </li>
+      <li class="nav-item mx-3" id="flights-link">
+        <a class="nav-link" href="#"><i class="fas fa-plane-departure"></i> Flights</a>
       </li>
       <li class="nav-item mx-3" id="planes-link">
         <a class="nav-link" href="#"><i class="fas fa-plane-departure"></i> Planes</a>

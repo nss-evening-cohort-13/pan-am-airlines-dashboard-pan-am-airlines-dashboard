@@ -11,6 +11,8 @@ import addCrewView from '../components/views/addCrewView';
 import updateCrew from '../components/views/updateCrewView';
 import updateFoodView from '../components/views/foodUpdateView';
 import updateAirport from '../components/views/airportUpdateView';
+import flight from '../components/views/flightView';
+import addFlightView from '../components/views/addFlightView';
 
 const viewHelper = (id, user, param) => {
   switch (id) {
@@ -47,6 +49,10 @@ const viewHelper = (id, user, param) => {
       return updateFoodView.updateFoodView(param);
     case 'update-airport-link':
       return updateAirport.updateAirport(param);
+    case 'flights-link':
+      return flight.viewFlights(user);
+    case 'add-flight-btn':
+      return addFlightView.addFlightView();
     default:
       return console.warn('nothing clicked');
   }
