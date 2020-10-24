@@ -11,11 +11,11 @@ const updateFlightForm = (obj) => {
     </div>
     <div class="form-group">
         <label for="flight-departure-time">Departure Time:</label>
-        <input type="text" value="${obj.departureTime} class="form-control" id="flight-departure-time">
+        <input type="text" value="${obj.departureTime}" class="form-control" id="flight-departure-time">
     </div>
     <div class="form-group">
         <label for="flight-duration">Duration:</label>
-        <input type="text" value="${obj.flightDuration} class="form-control" id="flight-duration">
+        <input type="text" value="${obj.flightDuration}" class="form-control" id="flight-duration">
     </div>
     <button id="add-flight-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Flight</button>
   </form>
