@@ -15,9 +15,6 @@ const showSnack = (user) => {
           if (user) {
             if ($('#food-btn-area').is(':empty')) {
               $('#food-btn-area').append(
-                '<button type="button" class="btn btn-success" id="add-food-btn"><i class="fas fa-plus-circle"></i> Add a Food Item</button>'
-              );
-              $('#food-btn-area').append(
                 '<button type="button" class="btn btn-info" id="snack-btn"><i class="fas fa-utensils"></i> Snack Menu</button>'
               );
               $('#food-btn-area').append(

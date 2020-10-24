@@ -13,6 +13,7 @@ import updateFoodView from '../components/views/foodUpdateView';
 import updateAirport from '../components/views/airportUpdateView';
 import flight from '../components/views/flightView';
 import addFlightView from '../components/views/addFlightView';
+// import snackView from '../components/views/snackView';
 
 const viewHelper = (id, user, param) => {
   switch (id) {
@@ -28,6 +29,8 @@ const viewHelper = (id, user, param) => {
       return addplaneView.addplaneView();
     case 'foods-link':
       return Food.showFood(user);
+    // case 'snack-link':
+    //   return snackView.showSnack(user);
     case 'add-food-btn':
       $('#app').html('');
       return addFoodView.addFoodView();
