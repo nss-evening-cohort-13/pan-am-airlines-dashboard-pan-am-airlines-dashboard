@@ -18,6 +18,7 @@ const foodCardBuilder = (foodItem) => {
     </div>
     <ul class="list-group list-group-flush">
       <li class="list-group-item">${foodItem.description}</li>
+      <li class="list-group-item">${foodItem.mealType}</li>
     </ul>
     <div class="card-body" id="${foodItem.food_id}">
     </div>

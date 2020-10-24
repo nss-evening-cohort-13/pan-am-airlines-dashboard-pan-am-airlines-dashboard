@@ -14,6 +14,9 @@ const myNavbar = (name = 'Guest') => {
       <li class="nav-item mx-3"  id="airports-link">
         <a class="nav-link" href="#"><i class="fas fa-clipboard"></i> Airports</a>
       </li>
+      <li class="nav-item mx-3" id="flights-link">
+        <a class="nav-link" href="#"><i class="fas fa-plane-departure"></i> Flights</a>
+      </li>
       <li class="nav-item mx-3" id="planes-link">
         <a class="nav-link" href="#"><i class="fas fa-plane-departure"></i> Planes</a>
       </li>

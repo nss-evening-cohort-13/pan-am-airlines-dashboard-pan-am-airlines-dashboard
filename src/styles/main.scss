@@ -55,6 +55,20 @@ body {
   text-align: center;
 }
 
+#meal-area {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
+#snack-area {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+  text-align: center;
+}
+
 .hide {
   display: none;
 }
@@ -69,5 +83,11 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-around;
+  text-align: center;
+}
+
+#landing-page-table {
+  padding-top: 20px;
+  color: #343a40;
   text-align: center;
 }

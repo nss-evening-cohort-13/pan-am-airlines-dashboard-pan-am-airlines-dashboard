@@ -11,6 +11,11 @@ import addCrewView from '../components/views/addCrewView';
 import updateCrew from '../components/views/updateCrewView';
 import updateFoodView from '../components/views/foodUpdateView';
 import updateAirport from '../components/views/airportUpdateView';
+import flight from '../components/views/flightView';
+import addFlightView from '../components/views/addFlightView';
+import updateFlight from '../components/views/updateFlightView';
+import mealMenuView from '../components/views/mealMenuView';
+import snackMenuView from '../components/views/snackMenuView';
 
 const viewHelper = (id, user, param) => {
   switch (id) {
@@ -25,7 +30,12 @@ const viewHelper = (id, user, param) => {
       $('#app').html('');
       return addplaneView.addplaneView();
     case 'foods-link':
+    case 'foods-all':
       return Food.showFood(user);
+    case 'meal-view':
+      return mealMenuView.showMeals(user);
+    case 'snack-view':
+      return snackMenuView.showSnacks(user);
     case 'add-food-btn':
       $('#app').html('');
       return addFoodView.addFoodView();
@@ -47,6 +57,12 @@ const viewHelper = (id, user, param) => {
       return updateFoodView.updateFoodView(param);
     case 'update-airport-link':
       return updateAirport.updateAirport(param);
+    case 'update-flight-link':
+      return updateFlight.updateFlight(param);
+    case 'flights-link':
+      return flight.viewFlights(user);
+    case 'add-flight-btn':
+      return addFlightView.addFlightView();
     default:
       return console.warn('nothing clicked');
   }
@@ -72,9 +88,25 @@ const viewListener = (view, user) => {
     const foodUid = e.currentTarget.id;
     viewHelper('update-food-link', user, foodUid);
   });
+  $('body').on('click', '#meal-btn', (e) => {
+    const mealType = e.currentTarget.id;
+    viewHelper('meal-view', user, mealType);
+  });
+  $('body').on('click', '#snack-btn', (e) => {
+    const mealType = e.currentTarget.id;
+    viewHelper('snack-view', user, mealType);
+  });
+  $('body').on('click', '#all-foods-btn', (e) => {
+    const mealType = e.currentTarget.id;
+    viewHelper('foods-all', user, mealType);
+  });
   $('body').on('click', '.update-airport', (e) => {
     const airportUid = e.currentTarget.id;
     viewHelper('update-airport-link', user, airportUid);
+  });
+  $('body').on('click', '.edit-flight', (e) => {
+    const flightId = e.currentTarget.id;
+    viewHelper('update-flight-link', user, flightId);
   });
 };
 
