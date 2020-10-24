@@ -13,6 +13,7 @@ import updateFoodView from '../components/views/foodUpdateView';
 import updateAirport from '../components/views/airportUpdateView';
 import flight from '../components/views/flightView';
 import addFlightView from '../components/views/addFlightView';
+import updateFlight from '../components/view/updateFlight';
 
 const viewHelper = (id, user, param) => {
   switch (id) {
@@ -49,6 +50,8 @@ const viewHelper = (id, user, param) => {
       return updateFoodView.updateFoodView(param);
     case 'update-airport-link':
       return updateAirport.updateAirport(param);
+    case 'update-flight-link':
+      return updateFlight.updateFlight(param);
     case 'flights-link':
       return flight.viewFlights(user);
     case 'add-flight-btn':
@@ -81,6 +84,10 @@ const viewListener = (view, user) => {
   $('body').on('click', '.update-airport', (e) => {
     const airportUid = e.currentTarget.id;
     viewHelper('update-airport-link', user, airportUid);
+  });
+  $('body').on('click', '.update-flight', (e) => {
+    const flightId = e.currentTarget.id;
+    viewHelper('update-flight-link', user, flightId);
   });
 };
 
