@@ -16,6 +16,9 @@ const showMeals = (user) => {
       $('#meal-btn-area').append(
         '<button type="button" class="btn btn-warning" id="meal-btn"><i class="fas fa-utensils"></i> Meal Menu</button>'
       );
+      $('#meal-btn-area').append(
+        '<button type="button" class="btn btn-secondary" id="all-foods-btn"><i class="fas fa-utensils"></i> All Foods</button>'
+      );
       response.forEach((foodItem) => {
         if (foodItem !== undefined) {
           $('#meal-area').append(FoodCard.foodCardBuilder(foodItem));

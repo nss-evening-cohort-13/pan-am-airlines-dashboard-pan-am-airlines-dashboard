@@ -29,6 +29,7 @@ const viewHelper = (id, user, param) => {
       $('#app').html('');
       return addplaneView.addplaneView();
     case 'foods-link':
+    case 'foods-all':
       return Food.showFood(user);
     case 'meal-view':
       return mealMenuView.showMeals(user);
@@ -87,6 +88,10 @@ const viewListener = (view, user) => {
   $('body').on('click', '#meal-btn', (e) => {
     const mealType = e.currentTarget.id;
     viewHelper('meal-view', user, mealType);
+  });
+  $('body').on('click', '#all-foods-btn', (e) => {
+    const mealType = e.currentTarget.id;
+    viewHelper('foods-all', user, mealType);
   });
   $('body').on('click', '.update-airport', (e) => {
     const airportUid = e.currentTarget.id;
