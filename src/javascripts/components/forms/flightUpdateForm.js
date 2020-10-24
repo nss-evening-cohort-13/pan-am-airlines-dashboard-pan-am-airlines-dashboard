@@ -48,4 +48,4 @@ const updateFlightForm = (obj) => {
   });
 };
 
-export default { updateCrewForm };
+export default { updateFlightForm };

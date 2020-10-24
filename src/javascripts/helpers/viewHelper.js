@@ -13,7 +13,7 @@ import updateFoodView from '../components/views/foodUpdateView';
 import updateAirport from '../components/views/airportUpdateView';
 import flight from '../components/views/flightView';
 import addFlightView from '../components/views/addFlightView';
-import updateFlight from '../components/view/updateFlight';
+import updateFlight from '../components/views/updateFlightView';
 
 const viewHelper = (id, user, param) => {
   switch (id) {
