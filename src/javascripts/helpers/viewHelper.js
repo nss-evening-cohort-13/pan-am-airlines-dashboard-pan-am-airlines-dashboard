@@ -85,7 +85,7 @@ const viewListener = (view, user) => {
     const airportUid = e.currentTarget.id;
     viewHelper('update-airport-link', user, airportUid);
   });
-  $('body').on('click', '.update-flight', (e) => {
+  $('body').on('click', '.edit-flight', (e) => {
     const flightId = e.currentTarget.id;
     viewHelper('update-flight-link', user, flightId);
   });

@@ -7,7 +7,7 @@ const updateFlightForm = (obj) => {
     <div id="error-message"></div>
     <div class="form-group">
         <label for="flight-number">Flight Number:</label>
-        <input type="text" value="${obj.flightNumber} class="form-control" id="flight-number">
+        <input type="text" value="${obj.flightNumber}" class="form-control" id="flight-number">
     </div>
     <div class="form-group">
         <label for="flight-departure-time">Departure Time:</label>
