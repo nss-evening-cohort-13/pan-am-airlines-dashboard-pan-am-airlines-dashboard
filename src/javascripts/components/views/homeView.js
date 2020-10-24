@@ -11,7 +11,6 @@ const showHomepage = () => {
     if (response.length) {
       let rows = '';
       response.forEach((flight) => {
-        console.warn(flightBoardCard.flightBoardCard(flight));
         rows += flightBoardCard.flightBoardCard(flight);
       });
       $('#landing-page-table').html('');
