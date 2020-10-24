@@ -14,7 +14,7 @@ const showMeals = (user) => {
         '<button type="button" class="btn btn-dark" id="snack-btn"><i class="fas fa-utensils"></i> Snack Menu</button>'
       );
       $('#meal-btn-area').append(
-        '<button type="button" class="btn btn-warning" id="meal-btn"><i class="fas fa-utensils"></i> Meal Menu</button>'
+        '<button type="button" class="btn btn-outline-warning" id="meal-btn"><i class="fas fa-utensils"></i> Meal Menu</button>'
       );
       $('#meal-btn-area').append(
         '<button type="button" class="btn btn-secondary" id="all-foods-btn"><i class="fas fa-utensils"></i> All Foods</button>'
