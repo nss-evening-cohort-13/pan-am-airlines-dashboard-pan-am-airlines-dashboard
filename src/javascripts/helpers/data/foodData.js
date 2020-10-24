@@ -30,6 +30,22 @@ const getSingleFoodItem = (foodUid) => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getMeals = () => new Promise((resolve, reject) => {
+  axios
+    .get(`${baseUrl}/food.json?orderBy="mealType"&equalTo="meal"`)
+    .then((response) => {
+      const mealItems = response.data;
+      const mealItemsList = [];
+      if (mealItems) {
+        Object.keys(mealItems).forEach((mealType) => {
+          mealItemsList.push(mealItems[mealType]);
+        });
+      }
+      resolve(mealItemsList);
+    })
+    .catch((error) => reject(error));
+});
+
 const deleteFood = (uid) => axios.delete(`${baseUrl}/food/${uid}.json`);
 
 const addFood = (data) => axios
@@ -47,5 +63,6 @@ export default {
   addFood,
   updateFood,
   getSingleFoodItem,
-  deleteFood
+  deleteFood,
+  getMeals
 };
