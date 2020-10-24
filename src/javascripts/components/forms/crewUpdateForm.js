@@ -39,7 +39,6 @@ const updateCrewForm = (obj) => {
       setTimeout(() => {
         $('#success-message').html('');
       }, 2000);
-      $('#board').val('');
     }
   });
 };
