@@ -27,4 +27,6 @@ const getFlights = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
-export default { addFlight, getFlights };
+const updateFlight = (flightId, dataObject) => axios.patch(`${baseUrl}/flights/${flightId}.json`, dataObject);
+
+export default { addFlight, getFlights, updateFlight };
