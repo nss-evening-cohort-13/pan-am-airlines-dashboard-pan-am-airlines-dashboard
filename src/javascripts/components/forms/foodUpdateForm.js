@@ -13,8 +13,8 @@ const updateFoodForm = (foodObj) => {
             <div class="form-group dropdown show">
             <label for="meal-type">Food Type</label>
             <select name="meal-type" id="meal-type">
-              <option value="snack">Snack</option>
-              <option value="meal">Meal</option>
+              <option ${(foodObj.mealType === 'snack') ? 'selected' : ''} value="snack">Snack</option>
+              <option ${(foodObj.mealType === 'meal') ? 'selected' : ''} value="meal">Meal</option>
             </select>
             </div>
             <div class="form-group">
