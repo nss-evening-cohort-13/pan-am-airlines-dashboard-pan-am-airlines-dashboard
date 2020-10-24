@@ -4,7 +4,6 @@ import flightBoardCard from '../cards/flightBoardCard';
 const showHomepage = () => {
   $('#app').html('');
   $('#app').append('<p>Welcome to the PanAm DashBoard!</p>');
-  $('#app').append('<div id="landing-page-image"></div>');
   $('#app').append('<div id="landing-page-table"></div>');
 
   flightData.getFlights().then((response) => {
