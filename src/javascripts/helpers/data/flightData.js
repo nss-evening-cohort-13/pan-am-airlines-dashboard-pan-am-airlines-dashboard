@@ -39,9 +39,12 @@ const getSingleFlight = (flightId) => new Promise((resolve, reject) => {
 
 const updateFlight = (flightId, dataObject) => axios.patch(`${baseUrl}/flights/${flightId}.json`, dataObject);
 
+const deleteFlight = (uid) => axios.delete(`${baseUrl}/flights/${uid}.json`)
+
 export default {
   addFlight,
   getFlights,
   updateFlight,
-  getSingleFlight
+  getSingleFlight,
+  deleteFlight
 };
