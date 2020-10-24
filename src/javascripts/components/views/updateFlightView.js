@@ -1,5 +1,5 @@
 import flightData from '../../helpers/data/flightData';
-import form from '../forms/crewUpdateForm';
+import form from '../forms/flightUpdateForm';
 
 const updateFlight = (flightId) => {
   $('#app').html('<div class="flightForm" id="update-flight"></div>');

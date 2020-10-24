@@ -23,9 +23,9 @@ const updateFlightForm = (obj) => {
   $('#add-flight-btn').on('click', (e) => {
     e.preventDefault();
     const information = {
-        flightNumber: $('#flight-number').val() || false,
-        departureTime: $('#flight-departure-time').val() || false,
-        flightDuration: $('#flight-duration').val() || false,
+      flightNumber: $('#flight-number').val() || false,
+      departureTime: $('#flight-departure-time').val() || false,
+      flightDuration: $('#flight-duration').val() || false,
     };
     if (Object.values(information).includes(false)) {
       $('#error-message').html(
