@@ -1,12 +1,13 @@
 import firebase from 'firebase/app';
 import 'firebase/auth';
+import flightData from '../../helpers/data/flightData';
 
 const flightCard = (flightObj) => {
   let buttons = '';
   const user = firebase.auth().currentUser;
   if (user) {
     buttons += `<a href='#' id='${flightObj.flightId}' class='btn btn-primary edit-flight'>Update Flight</a>
-    <a id='delete__${flightObj.flightId}' href='#' class='delete btn btn-danger'>Delete Flight</a>`;
+    <a id='delete__${flightObj.flightId}' href='#' class='delete-flight btn btn-danger'>Delete Flight</a>`;
   }
 
   const domString = $('#app').append(`
@@ -19,6 +20,12 @@ const flightCard = (flightObj) => {
       ${buttons}
     </div>
   </div>`);
+  $('body').on('click', '.delete-flight', (e) => {
+    e.stopImmediatePropagation();
+    const uid = e.currentTarget.id;
+    $(`.card#flight-${uid}`).remove();
+    flightData.deleteFlight(uid);
+  });
   return domString;
 };
 
