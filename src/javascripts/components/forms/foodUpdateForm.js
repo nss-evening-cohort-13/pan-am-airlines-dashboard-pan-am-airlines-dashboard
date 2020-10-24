@@ -10,6 +10,13 @@ const updateFoodForm = (foodObj) => {
               <label for="name">Cost</label>
               <input value="${foodObj.cost}" type="text" class="form-control" id="cost">
             </div>
+            <div class="form-group dropdown show">
+            <label for="meal-type">Food Type</label>
+            <select name="meal-type" id="meal-type">
+              <option value="snack">Snack</option>
+              <option value="meal">Meal</option>
+            </select>
+            </div>
             <div class="form-group">
             <label for="type">Description</label>
             <input value="${foodObj.description}" type="text" class="form-control" id="description">
@@ -33,6 +40,7 @@ const updateFoodForm = (foodObj) => {
       description: $('#description').val() || false,
       name: $('#name').val() || false,
       image_URL: $('#image').val() || false,
+      mealType: $('#meal-type').val() || false,
     };
 
     if (Object.values(data).includes(false)) {

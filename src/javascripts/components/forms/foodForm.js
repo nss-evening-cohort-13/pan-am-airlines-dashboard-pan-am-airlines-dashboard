@@ -4,12 +4,21 @@ const foodForm = () => {
   $('#food-form').html(
     `<h2>Add Food</h2>
           <div id="success-message"></div>
+          <div id="error-message"></div>
           <form>
-            <div id="error-message"></div>
             <div class="form-group">
               <label for="name">Cost</label>
               <input type="text" class="form-control" id="cost">
             </div>
+
+            <div class="form-group dropdown show">
+            <label for="meal-type">Food Type</label>
+            <select name="meal-type" id="meal-type">
+              <option value="snack">Snack</option>
+              <option value="meal">Meal</option>
+            </select>
+            </div>
+
             <div class="form-group">
             <label for="type">Description</label>
             <input type="text" class="form-control" id="description">
@@ -33,6 +42,7 @@ const foodForm = () => {
       description: $('#description').val() || false,
       name: $('#name').val() || false,
       image_URL: $('#image').val() || false,
+      mealType: $('#meal-type').val() || false,
     };
 
     if (Object.values(data).includes(false)) {
@@ -55,6 +65,7 @@ const foodForm = () => {
       $('#description').val('');
       $('#name').val('');
       $('#image').val('');
+      $('#meal-type').val('');
     }
   });
 };
