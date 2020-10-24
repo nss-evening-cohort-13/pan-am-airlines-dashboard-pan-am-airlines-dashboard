@@ -27,6 +27,21 @@ const getFlights = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getSingleFlight = (flightId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/flights.json?orderBy="flightId"&equalTo="${flightId}"`)
+    .then((response) => {
+      const flights = Object.values(response.data);
+      const thisFlight = flights[0];
+      resolve(thisFlight);
+    })
+    .catch((error) => reject(error));
+});
+
 const updateFlight = (flightId, dataObject) => axios.patch(`${baseUrl}/flights/${flightId}.json`, dataObject);
 
-export default { addFlight, getFlights, updateFlight };
+export default {
+  addFlight,
+  getFlights,
+  updateFlight,
+  getSingleFlight
+};
