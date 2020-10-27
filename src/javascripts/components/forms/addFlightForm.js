@@ -1,4 +1,5 @@
 import flightData from '../../helpers/data/flightData';
+import crewData from '../../helpers/data/crewData';
 import planeData from '../../helpers/data/planeData';
 
 const flightForm = () => {
@@ -19,6 +20,12 @@ const flightForm = () => {
       <label for="flight-duration">Duration:</label>
       <input type="text" class="form-control" id="flight-duration">
     </div>
+    <select class="mdb-select md-form" multiple>
+  <optgroup id="Crew" label="Crew">
+ </optgroup>
+  <optgroup id="Pilots" label="Pilots">
+  </optgroup>
+</select>
     <div class="form-group">
           <label for="planeId">Plane</label>
             <select class="form-control" id="planeId">
@@ -28,6 +35,20 @@ const flightForm = () => {
     <button id="add-flight-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Add Flight</button>
   </form>
   `);
+  crewData.getCrewMembers().then((response) => {
+    response.forEach((item) => {
+      if (item.role === 'Crew Member') {
+        $('optgroup#Crew').append(
+          `<option value=${item.uid}>${item.name}</option>`
+        );
+      } else {
+        $('optgroup#Pilots').append(
+          `<option value=${item.uid}>${item.name}</option>`
+        );
+      }
+    });
+  });
+
   $('#add-flight-btn').on('click', (e) => {
     e.preventDefault();
 
