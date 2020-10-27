@@ -27,6 +27,14 @@ const showHomepage = () => {
           </tbody>
       </table>`
       );
+      $('#app').append(`<div class="flight-details">
+      <div class="title"><h1>Welcome to Panam</h1></div>
+      <div class="instructions">Click on a flight row to see details</div>
+      <div id="details">(none selected)</div>
+      </div>`);
+      $('.flight-row').on('click', (e) => {
+        console.warn(e.currentTarget.id);
+      });
     }
   });
 };
