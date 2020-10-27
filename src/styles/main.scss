@@ -90,4 +90,17 @@ body {
   padding-top: 20px;
   color: #343a40;
   text-align: center;
+  position: relative;
+}
+
+.flight-details {
+  color: white;
+  background-color: black;
+  opacity: 94%;
+  position: absolute;
+  top: 250px;
+  right: 5%;
+  width: 25%;
+  height: 450px;
+  text-align: center;
 }

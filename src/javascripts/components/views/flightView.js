@@ -1,5 +1,15 @@
 import flightData from '../../helpers/data/flightData';
 import card from '../cards/flightCard';
+import flightDetails from '../cards/flightDetailsCard';
+
+const viewFlight = (flightId) => {
+  flightData.getSingleFlight(flightId).then((response) => {
+    if (response) {
+      $('.flight-details #details').html('');
+      $('.flight-details #details').append(flightDetails.flightDetailsCard(response));
+    }
+  });
+};
 
 const viewFlights = (user) => {
   $('#app').html('');
@@ -30,4 +40,4 @@ const viewFlights = (user) => {
   });
 };
 
-export default { viewFlights };
+export default { viewFlights, viewFlight };
