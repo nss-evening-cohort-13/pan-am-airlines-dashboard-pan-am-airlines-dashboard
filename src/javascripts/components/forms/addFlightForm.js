@@ -1,5 +1,6 @@
 import flightData from '../../helpers/data/flightData';
 import airportData from '../../helpers/data/airportData';
+import planeData from '../../helpers/data/planeData';
 
 const flightForm = () => {
   $('#flight-form').html(`
@@ -31,6 +32,12 @@ const flightForm = () => {
       <label for="flight-duration">Duration:</label>
       <input type="text" class="form-control" id="flight-duration">
     </div>
+    <div class="form-group">
+          <label for="planeId">Plane</label>
+            <select class="form-control" id="planeId">
+              <option value="">Select Plane</option>
+            </select>
+        </div>
     <button id="add-flight-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Add Flight</button>
   </form>
   `);
@@ -55,6 +62,7 @@ const flightForm = () => {
       flightDuration: $('#flight-duration').val() || false,
       origin_id: $('#flight-origin').val() || false,
       destination_id: $('#flight-destination').val() || false,
+      planeId: $('#planeId').val() || false
     };
 
     if (Object.values(data).includes(false)) {
@@ -81,7 +89,13 @@ const flightForm = () => {
       $('#flight-duration').val('');
       $('#flight-destination').val('');
       $('#flight-origin').val('');
+      $('#planeId').val('');
     }
+  });
+  planeData.getPlanes().then((response) => {
+    response.forEach((item) => {
+      $('#planeId').append(`<option value='${item.uid}'}>${item.name}</option>`);
+    });
   });
 };
 
