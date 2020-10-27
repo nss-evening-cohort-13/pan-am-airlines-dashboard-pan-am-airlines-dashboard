@@ -1,4 +1,5 @@
 import flightData from '../../helpers/data/flightData';
+import airportData from '../../helpers/data/airportData';
 
 const flightForm = () => {
   $('#flight-form').html(`
@@ -11,6 +12,18 @@ const flightForm = () => {
         <input type="text" class="form-control" id="flight-number">
       </div>
       <div class="form-group">
+        <label for="flight-origin">Origin:</label>
+          <select class="form-control" id="flight-origin">
+              <option value="">Select an Origin</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="flight-destination">Destination:</label>
+          <select class="form-control" id="flight-destination">
+              <option value="">Select a Destination</option>
+          </select>
+      </div>
+      <div class="form-group">
         <label for="flight-departure-time">Departure Time:</label>
         <input type="text" class="form-control" id="flight-departure-time">
       </div>
@@ -21,6 +34,15 @@ const flightForm = () => {
     <button id="add-flight-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Add Flight</button>
   </form>
   `);
+
+  airportData.getAirports().then((response) => {
+    response.forEach((item) => {
+      $('select').append(
+        `<option value = "${item.uid}">${item.city}, ${item.state}</option>`
+      );
+    });
+  });
+
   $('#add-flight-btn').on('click', (e) => {
     e.preventDefault();
 
@@ -28,6 +50,8 @@ const flightForm = () => {
       flightNumber: $('#flight-number').val() || false,
       departureTime: $('#flight-departure-time').val() || false,
       flightDuration: $('#flight-duration').val() || false,
+      origin_id: $('#flight-origin').val() || false,
+      destination_id: $('#flight-destination').val() || false,
     };
 
     if (Object.values(data).includes(false)) {
@@ -52,6 +76,8 @@ const flightForm = () => {
       $('#flight-number').val('');
       $('#flight-departure-time').val('');
       $('#flight-duration').val('');
+      $('#flight-destination').val('');
+      $('#flight-origin').val('');
     }
   });
 };
