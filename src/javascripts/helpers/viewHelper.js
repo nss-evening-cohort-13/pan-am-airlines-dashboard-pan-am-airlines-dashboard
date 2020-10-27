@@ -63,6 +63,8 @@ const viewHelper = (id, user, param) => {
       return flight.viewFlights(user);
     case 'add-flight-btn':
       return addFlightView.addFlightView();
+    case 'flight-details':
+      return flight.viewFlight(param);
     default:
       return console.warn('nothing clicked');
   }
@@ -107,6 +109,10 @@ const viewListener = (view, user) => {
   $('body').on('click', '.edit-flight', (e) => {
     const flightId = e.currentTarget.id;
     viewHelper('update-flight-link', user, flightId);
+  });
+  $('body').on('click', '.flightrow', (e) => {
+    const flightId = e.currentTarget.id;
+    viewHelper('flight-details', user, flightId);
   });
 };
 
