@@ -32,9 +32,6 @@ const showHomepage = () => {
       <div class="instructions">Click on a flight row to see details</div>
       <div id="details">(none selected)</div>
       </div>`);
-      $('.flight-row').on('click', (e) => {
-        console.warn(e.currentTarget.id);
-      });
     }
   });
 };
