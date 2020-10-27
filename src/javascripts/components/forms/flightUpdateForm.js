@@ -1,4 +1,5 @@
 import flightData from '../../helpers/data/flightData';
+import planeData from '../../helpers/data/planeData';
 
 const updateFlightForm = (obj) => {
   $('#update-flight').html(`<h2>Update a Flight</h2>
@@ -17,6 +18,12 @@ const updateFlightForm = (obj) => {
         <label for="flight-duration">Duration:</label>
         <input type="text" value="${obj.flightDuration}" class="form-control" id="flight-duration">
     </div>
+    <div class="form-group">
+          <label for="planeId">Plane</label>
+            <select class="form-control" id="planeId">
+              <option value="">Select Plane</option>
+            </select>
+        </div>
     <button id="add-flight-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Flight</button>
   </form>
   `);
@@ -26,6 +33,7 @@ const updateFlightForm = (obj) => {
       flightNumber: $('#flight-number').val() || false,
       departureTime: $('#flight-departure-time').val() || false,
       flightDuration: $('#flight-duration').val() || false,
+      planeId: $('#planeId').val() || false
     };
     if (Object.values(information).includes(false)) {
       $('#error-message').html(
@@ -45,6 +53,11 @@ const updateFlightForm = (obj) => {
         $('#success-message').html('');
       }, 2000);
     }
+  });
+  planeData.getPlanes().then((response) => {
+    response.forEach((item) => {
+      $('#planeId').append(`<option value='${item.uid}' ${obj.planeId === item.uid ? "selected='selected'" : ''}>${item.name}</option>`);
+    });
   });
 };
 
