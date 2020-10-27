@@ -37,7 +37,10 @@ const flightForm = () => {
 
   airportData.getAirports().then((response) => {
     response.forEach((item) => {
-      $('select').append(
+      $('select#flight-origin').append(
+        `<option value = "${item.uid}">${item.city}, ${item.state}</option>`
+      );
+      $('select#flight-destination').append(
         `<option value = "${item.uid}">${item.city}, ${item.state}</option>`
       );
     });
