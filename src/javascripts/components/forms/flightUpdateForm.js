@@ -33,7 +33,7 @@ const updateFlightForm = (obj) => {
       flightNumber: $('#flight-number').val() || false,
       departureTime: $('#flight-departure-time').val() || false,
       flightDuration: $('#flight-duration').val() || false,
-      planeId: $('#planeId').val() || false
+      // planeId: $('#planeId').val() || false
     };
     if (Object.values(information).includes(false)) {
       $('#error-message').html(
@@ -41,14 +41,22 @@ const updateFlightForm = (obj) => {
       );
     } else {
       $('#error-message').html('');
+
+      const planeInfo = $('#planeId').val();
+
       flightData
         .updateFlight(obj.flightId, information)
         .then(() => {
+          const flightInfo = {
+            flightId: obj.flightId
+          };
+          planeData.updatePlane(planeInfo, flightInfo);
           $('#success-message').html(
             '<div class="alert alert-success" role="alert">Info Updated!</div>'
           );
         })
         .catch((error) => console.warn(error));
+
       setTimeout(() => {
         $('#success-message').html('');
       }, 2000);
@@ -56,7 +64,7 @@ const updateFlightForm = (obj) => {
   });
   planeData.getPlanes().then((response) => {
     response.forEach((item) => {
-      $('#planeId').append(`<option value='${item.uid}' ${obj.planeId === item.uid ? "selected='selected'" : ''}>${item.name}</option>`);
+      $('#planeId').append(`<option value='${item.uid}' ${obj.flightId === item.flightId ? "selected='selected'" : ''}>${item.name}</option>`);
     });
   });
 };

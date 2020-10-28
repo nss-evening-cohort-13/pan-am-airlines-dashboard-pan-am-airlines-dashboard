@@ -28,6 +28,7 @@ const planeForm = () => {
       name: $('#name').val() || false,
       type: $('#type').val() || false,
       image: $('#image').val() || false,
+      flightId: '',
     };
 
     if (Object.values(data).includes(false)) {
