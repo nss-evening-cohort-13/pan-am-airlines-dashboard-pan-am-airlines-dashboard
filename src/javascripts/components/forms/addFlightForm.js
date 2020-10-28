@@ -83,7 +83,6 @@ const flightForm = () => {
       flightDuration: $('#flight-duration').val() || false,
       origin_id: $('#flight-origin').val() || false,
       destination_id: $('#flight-destination').val() || false,
-      planeId: $('#planeId').val() || false
     };
 
     if (Object.values(data).includes(false)) {
@@ -93,9 +92,15 @@ const flightForm = () => {
     } else {
       $('#error-message').html('');
 
+      const planeInfo = $('#planeId').val();
+
       flightData
         .addFlight(data)
-        .then(() => {
+        .then((response) => {
+          const flightInfo = {
+            flightId: response
+          };
+          planeData.updatePlane(planeInfo, flightInfo);
           $('#success-message').html(
             '<div class="alert alert-success" role="alert">Your Flight Was Added!</div>'
           );

@@ -10,7 +10,7 @@ const flightCard = (flightObj) => {
     <a id='${flightObj.flightId}' href='#' class='delete-flight btn btn-danger'>Delete Flight</a>`;
   }
 
-  const domString = $('#app').append(`
+  const domString = $('#flights-area').append(`
     <div class="flight card" id="flight-${flightObj.flightId}" style="width: 18rem;">
     <h3 class="card-title">Flight Number: ${flightObj.flightNumber}</h3>
     <div class="card-body">
