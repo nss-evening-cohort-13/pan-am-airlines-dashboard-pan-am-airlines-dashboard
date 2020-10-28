@@ -19,6 +19,36 @@ const getCrewMembers = () => new Promise((resolve, reject) => {
     .catch((error) => reject(error));
 });
 
+const getFlightCrewByFlightId = (flightId) => new Promise((resolve, reject) => {
+  axios.get(`${baseUrl}/crew.json?orderBy="flightId"&equalTo="${flightId}"`)
+    .then((response) => {
+      const crewMembers = response.data;
+      const crewRoster = [];
+      if (crewMembers) {
+        Object.keys(crewMembers).forEach((crewId) => {
+          crewRoster.push(crewMembers[crewId]);
+        });
+      }
+      resolve(crewRoster);
+    })
+    .catch((error) => reject(error));
+});
+
+const getCrewComplete = (flightId) => {
+  let numberPilots = 0;
+  let numberCrew = 0;
+  getFlightCrewByFlightId(flightId)
+    .then((response) => {
+      response.forEach((data) => {
+        if (data.role === 'Pilot') {
+          numberPilots += 1;
+        }
+        numberCrew += 1;
+      });
+    });
+  return ((numberCrew >= 4) && (numberPilots >= 2));
+};
+
 const getSingleCrewMember = (crewMemberUid) => new Promise((resolve, reject) => {
   axios.get(`${baseUrl}/crew.json?orderBy="uid"&equalTo="${crewMemberUid}"`)
     .then((response) => {
@@ -46,5 +76,7 @@ export default {
   addCrew,
   deleteCrewMember,
   updateCrewMember,
-  getSingleCrewMember
+  getSingleCrewMember,
+  getFlightCrewByFlightId,
+  getCrewComplete
 };
