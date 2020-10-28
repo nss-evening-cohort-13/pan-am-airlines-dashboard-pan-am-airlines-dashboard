@@ -1,4 +1,6 @@
 import flightData from '../../helpers/data/flightData';
+import airportData from '../../helpers/data/airportData';
+import crewData from '../../helpers/data/crewData';
 import planeData from '../../helpers/data/planeData';
 
 const flightForm = () => {
@@ -10,6 +12,18 @@ const flightForm = () => {
       <div class="form-group">
         <label for="flight-number">Flight Number:</label>
         <input type="text" class="form-control" id="flight-number">
+      </div>
+      <div class="form-group">
+        <label for="flight-origin">Origin:</label>
+          <select class="form-control" id="flight-origin">
+              <option value="">Select an Origin</option>
+          </select>
+      </div>
+      <div class="form-group">
+        <label for="flight-destination">Destination:</label>
+          <select class="form-control" id="flight-destination">
+              <option value="">Select a Destination</option>
+          </select>
       </div>
       <div class="form-group">
         <label for="flight-departure-time">Departure Time:</label>
@@ -28,6 +42,32 @@ const flightForm = () => {
     <button id="add-flight-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Add Flight</button>
   </form>
   `);
+
+  airportData.getAirports().then((response) => {
+    response.forEach((item) => {
+      $('select#flight-origin').append(
+        `<option value = "${item.uid}">${item.city}, ${item.state}</option>`
+      );
+      $('select#flight-destination').append(
+        `<option value = "${item.uid}">${item.city}, ${item.state}</option>`
+      );
+    });
+  });
+
+  crewData.getCrewMembers().then((response) => {
+    response.forEach((item) => {
+      if (item.role === 'Crew Member') {
+        $('optgroup#Crew').append(
+          `<option value=${item.uid}>${item.name}</option>`
+        );
+      } else {
+        $('optgroup#Pilots').append(
+          `<option value=${item.uid}>${item.name}</option>`
+        );
+      }
+    });
+  });
+
   $('#add-flight-btn').on('click', (e) => {
     e.preventDefault();
 
@@ -35,6 +75,8 @@ const flightForm = () => {
       flightNumber: $('#flight-number').val() || false,
       departureTime: $('#flight-departure-time').val() || false,
       flightDuration: $('#flight-duration').val() || false,
+      origin_id: $('#flight-origin').val() || false,
+      destination_id: $('#flight-destination').val() || false,
     };
 
     if (Object.values(data).includes(false)) {
@@ -65,6 +107,8 @@ const flightForm = () => {
       $('#flight-number').val('');
       $('#flight-departure-time').val('');
       $('#flight-duration').val('');
+      $('#flight-destination').val('');
+      $('#flight-origin').val('');
       $('#planeId').val('');
     }
   });

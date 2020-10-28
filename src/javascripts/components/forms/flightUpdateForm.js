@@ -1,4 +1,5 @@
 import flightData from '../../helpers/data/flightData';
+import airportData from '../../helpers/data/airportData';
 import planeData from '../../helpers/data/planeData';
 
 const updateFlightForm = (obj) => {
@@ -9,6 +10,18 @@ const updateFlightForm = (obj) => {
     <div class="form-group">
         <label for="flight-number">Flight Number:</label>
         <input type="text" value="${obj.flightNumber}" class="form-control" id="flight-number">
+    </div>
+    <div class="form-group">
+    <label for="flight-origin">Origin:</label>
+      <select class="form-control" id="flight-origin">
+          <option value="">Select an Origin</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="flight-destination">Destination:</label>
+        <select class="form-control" id="flight-destination">
+            <option value="">Select a Destination</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="flight-departure-time">Departure Time:</label>
@@ -27,6 +40,18 @@ const updateFlightForm = (obj) => {
     <button id="add-flight-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Flight</button>
   </form>
   `);
+
+  airportData.getAirports().then((response) => {
+    response.forEach((item) => {
+      $('select#flight-origin').append(
+        `<option value = "${item.uid}">${item.city}, ${item.state}</option>`
+      );
+      $('select#flight-destination').append(
+        `<option value = "${item.uid}">${item.city}, ${item.state}</option>`
+      );
+    });
+  });
+
   $('#add-flight-btn').on('click', (e) => {
     e.preventDefault();
     const information = {
