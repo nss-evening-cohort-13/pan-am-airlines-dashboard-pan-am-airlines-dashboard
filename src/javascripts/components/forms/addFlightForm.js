@@ -33,6 +33,12 @@ const flightForm = () => {
       <label for="flight-duration">Duration:</label>
       <input type="text" class="form-control" id="flight-duration">
     </div>
+    <select class="mdb-select md-form" multiple>
+  <optgroup id="Crew" label="Crew">
+ </optgroup>
+  <optgroup id="Pilots" label="Pilots">
+  </optgroup>
+</select>
     <div class="form-group">
           <label for="planeId">Plane</label>
             <select class="form-control" id="planeId">
