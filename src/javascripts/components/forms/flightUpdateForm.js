@@ -1,6 +1,7 @@
 import flightData from '../../helpers/data/flightData';
 import airportData from '../../helpers/data/airportData';
 import planeData from '../../helpers/data/planeData';
+import crewData from '../../helpers/data/crewData';
 
 const updateFlightForm = (obj) => {
   $('#update-flight').html(`<h2>Update a Flight</h2>
@@ -31,6 +32,12 @@ const updateFlightForm = (obj) => {
         <label for="flight-duration">Duration:</label>
         <input type="text" value="${obj.flightDuration}" class="form-control" id="flight-duration">
     </div>
+      <select class="mdb-select md-form" multiple>
+        <optgroup id="Crew" label="Crew">
+      </optgroup>
+        <optgroup id="Pilots" label="Pilots">
+        </optgroup>
+      </select>
     <div class="form-group">
           <label for="planeId">Plane</label>
             <select class="form-control" id="planeId">
@@ -40,6 +47,20 @@ const updateFlightForm = (obj) => {
     <button id="add-flight-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Flight</button>
   </form>
   `);
+
+  crewData.getCrewMembers().then((response) => {
+    response.forEach((item) => {
+      if (item.role === 'Crew Member') {
+        $('optgroup#Crew').append(
+          `<option value=${item.uid}>${item.name}</option>`
+        );
+      } else {
+        $('optgroup#Pilots').append(
+          `<option value=${item.uid}>${item.name}</option>`
+        );
+      }
+    });
+  });
 
   airportData.getAirports().then((response) => {
     response.forEach((item) => {
@@ -58,7 +79,7 @@ const updateFlightForm = (obj) => {
       flightNumber: $('#flight-number').val() || false,
       departureTime: $('#flight-departure-time').val() || false,
       flightDuration: $('#flight-duration').val() || false,
-      planeId: $('#planeId').val() || false
+      planeId: $('#planeId').val() || false,
     };
     if (Object.values(information).includes(false)) {
       $('#error-message').html(
@@ -81,7 +102,11 @@ const updateFlightForm = (obj) => {
   });
   planeData.getPlanes().then((response) => {
     response.forEach((item) => {
-      $('#planeId').append(`<option value='${item.uid}' ${obj.planeId === item.uid ? "selected='selected'" : ''}>${item.name}</option>`);
+      $('#planeId').append(
+        `<option value='${item.uid}' ${
+          obj.planeId === item.uid ? "selected='selected'" : ''
+        }>${item.name}</option>`
+      );
     });
   });
 };
