@@ -1,4 +1,5 @@
 import flightData from '../../helpers/data/flightData';
+import airportData from '../../helpers/data/airportData';
 import planeData from '../../helpers/data/planeData';
 
 const updateFlightForm = (obj) => {
@@ -9,6 +10,18 @@ const updateFlightForm = (obj) => {
     <div class="form-group">
         <label for="flight-number">Flight Number:</label>
         <input type="text" value="${obj.flightNumber}" class="form-control" id="flight-number">
+    </div>
+    <div class="form-group">
+    <label for="flight-origin">Origin:</label>
+      <select class="form-control" id="flight-origin">
+          <option value="">Select an Origin</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="flight-destination">Destination:</label>
+        <select class="form-control" id="flight-destination">
+            <option value="">Select a Destination</option>
+        </select>
     </div>
     <div class="form-group">
         <label for="flight-departure-time">Departure Time:</label>
@@ -27,13 +40,16 @@ const updateFlightForm = (obj) => {
     <button id="add-flight-btn" type="submit" class="btn btn-info"><i class="far fa-calendar-plus"></i> Update Flight</button>
   </form>
   `);
+
   $('#add-flight-btn').on('click', (e) => {
     e.preventDefault();
+
     const information = {
       flightNumber: $('#flight-number').val() || false,
       departureTime: $('#flight-departure-time').val() || false,
       flightDuration: $('#flight-duration').val() || false,
-      planeId: $('#planeId').val() || false
+      origin_id: $('#flight-origin').val() || false,
+      destination_id: $('#flight-destination').val() || false,
     };
     if (Object.values(information).includes(false)) {
       $('#error-message').html(
@@ -41,22 +57,39 @@ const updateFlightForm = (obj) => {
       );
     } else {
       $('#error-message').html('');
+
+      const planeInfo = $('#planeId').val();
+
       flightData
         .updateFlight(obj.flightId, information)
         .then(() => {
+          const flightInfo = {
+            flightId: obj.flightId
+          };
+          planeData.updatePlane(planeInfo, flightInfo);
           $('#success-message').html(
             '<div class="alert alert-success" role="alert">Info Updated!</div>'
           );
         })
         .catch((error) => console.warn(error));
+
       setTimeout(() => {
         $('#success-message').html('');
       }, 2000);
     }
   });
+
+  airportData.getAirports().then((response) => {
+    response.forEach((item) => {
+      $('select#flight-origin').append(`<option value='${item.uid}' ${obj.origin_id === item.uid ? "selected='selected'" : ''}>${item.city}, ${item.state}</option>`);
+
+      $('select#flight-destination').append(`<option value='${item.uid}' ${obj.destination_id === item.uid ? "selected='selected'" : ''}>${item.city}, ${item.state}</option>`);
+    });
+  });
+
   planeData.getPlanes().then((response) => {
     response.forEach((item) => {
-      $('#planeId').append(`<option value='${item.uid}' ${obj.planeId === item.uid ? "selected='selected'" : ''}>${item.name}</option>`);
+      $('#planeId').append(`<option value='${item.uid}' ${obj.flightId === item.flightId ? "selected='selected'" : ''}>${item.name}</option>`);
     });
   });
 };
