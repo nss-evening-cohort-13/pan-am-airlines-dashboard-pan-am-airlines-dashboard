@@ -92,7 +92,6 @@ const updateFlightForm = (obj) => {
 
       const planeInfo = $('#planeId').val();
       const crewInfo = $('#crewGroupSelect').val();
-
       flightData
         .updateFlight(obj.flightId, information)
         .then(() => {
@@ -100,10 +99,16 @@ const updateFlightForm = (obj) => {
             flightId: obj.flightId
           };
 
+          // need to compare existing crew members with selected
           crewData.getFlightCrewByFlightId(obj.flightId).then((response) => {
             if (response.length) {
               response.forEach((item) => {
-                console.warn(item);
+                // if existing crew member id is not found in selected
+                if (!crewInfo.includes(item.uid)) {
+                  crewData.updateCrewMember(item.uid, {
+                    flightId: ''
+                  });
+                }
               });
             }
           });
