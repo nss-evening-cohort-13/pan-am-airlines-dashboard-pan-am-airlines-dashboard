@@ -1,27 +1,24 @@
 import crewFunctions from '../../helpers/data/crewData';
 
-const getDataForDetailsCard = (id) => {
+const getDataForDetailsCard = (id) => new Promise((resolve, reject) => {
   const flightCrew = crewFunctions.getFlightCrewByFlightId(id);
-  // const arrayCrew = [];
-  Promise.all([flightCrew]).then((values) => {
-    console.warn('each value', values);
-    // arrayCrew.push(values[key].name);
-    // // Object.keys(values).forEach((key) => {
-    // //   console.warn(key, values[key].name);
-    // //   arrayCrew.push(values[key].name);
-    // // });
-    return values;
-  });
-};
+  Promise.all([flightCrew]).then(([crewResponse]) => {
+    let crew = '';
+    crewResponse.forEach((crewguy) => {
+      crew += `<div>${crewguy.name}</div>`;
+    });
+    resolve(crew);
+  }).catch((error) => reject(error));
+});
+
 const flightDetailsCard = (flightData) => {
-  const crew = getDataForDetailsCard(flightData.flightId);
-  console.warn('this is the crew:', crew);
+  console.warn(getDataForDetailsCard(flightData.flightId));
   const domString = `
   <div class="flight-details-card" id="${flightData.flightId}">
       <div>${flightData.flightNumber}</div>
       <div>${flightData.flightDuration}</div>
       <div>${flightData.departureTime}</div>
-      <div>${crew}</div>
+      <div>${getDataForDetailsCard(flightData.flightId)}</div>
     </div>`;
   return domString;
 };
