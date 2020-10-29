@@ -75,10 +75,13 @@ const updateFlightForm = (obj) => {
 
   $('#add-flight-btn').on('click', (e) => {
     e.preventDefault();
+
     const information = {
       flightNumber: $('#flight-number').val() || false,
       departureTime: $('#flight-departure-time').val() || false,
       flightDuration: $('#flight-duration').val() || false,
+      origin_id: $('#flight-origin').val() || false,
+      destination_id: $('#flight-destination').val() || false,
     };
     if (Object.values(information).includes(false)) {
       $('#error-message').html(
@@ -113,6 +116,15 @@ const updateFlightForm = (obj) => {
       }, 2000);
     }
   });
+
+  airportData.getAirports().then((response) => {
+    response.forEach((item) => {
+      $('select#flight-origin').append(`<option value='${item.uid}' ${obj.origin_id === item.uid ? "selected='selected'" : ''}>${item.city}, ${item.state}</option>`);
+
+      $('select#flight-destination').append(`<option value='${item.uid}' ${obj.destination_id === item.uid ? "selected='selected'" : ''}>${item.city}, ${item.state}</option>`);
+    });
+  });
+
   planeData.getPlanes().then((response) => {
     response.forEach((item) => {
       $('#planeId').append(`<option value='${item.uid}' ${obj.flightId === item.flightId ? "selected='selected'" : ''}>${item.name}</option>`);
