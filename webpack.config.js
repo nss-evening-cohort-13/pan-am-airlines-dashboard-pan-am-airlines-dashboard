@@ -61,7 +61,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       $: "jquery",
       jQuery: "jquery"
-    })
+    }),
   ],
   output: {
 		path: __dirname + "/build",

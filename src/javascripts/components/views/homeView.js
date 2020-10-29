@@ -20,6 +20,7 @@ const showHomepage = () => {
               <th>Flight Number</th>
               <th>Flight Duration</th>
               <th>Departure Time</th>
+              <th>Flight Complete?</th>
             </tr>
           </thead>
           <tbody>
