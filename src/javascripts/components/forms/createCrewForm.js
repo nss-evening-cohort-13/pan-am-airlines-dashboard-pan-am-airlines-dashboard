@@ -34,6 +34,7 @@ const addBoardForm = () => {
       name: $('#name').val() || false,
       role: $('#role').val() || false,
       planeuid: $('#airplane').val() || false,
+      flightId: ''
     };
 
     if (Object.values(crewInfo).includes(false)) {
