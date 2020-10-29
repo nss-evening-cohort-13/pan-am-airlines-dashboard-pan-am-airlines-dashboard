@@ -130,14 +130,6 @@ const updateFlightForm = (obj) => {
       $('#planeId').append(`<option value='${item.uid}' ${obj.flightId === item.flightId ? "selected='selected'" : ''}>${item.name}</option>`);
     });
   });
-
-  // crewData.getCrewMembers().then((response) => {
-  //   response.forEach((crewItem) => {
-  //     $('#crewGroupSelect').append(
-  //       `<option value='${crewItem.uid}' ${obj.flightId === crewItem.flightId ? "selected='selected'" : ''}>${crewItem.name}</option>`
-  //     );
-  //   });
-  // });
 };
 
 export default { updateFlightForm };
