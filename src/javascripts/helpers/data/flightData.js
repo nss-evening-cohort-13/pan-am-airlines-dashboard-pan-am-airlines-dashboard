@@ -3,13 +3,18 @@ import apiKeys from './apiKeys.json';
 
 const baseUrl = apiKeys.firebaseKeys.databaseURL;
 
-const addFlight = (data) => axios
-  .post(`${baseUrl}/flights.json`, data)
-  .then((response) => {
-    const update = { flightId: response.data.name };
-    axios.patch(`${baseUrl}/flights/${response.data.name}.json`, update);
-  })
-  .catch((error) => console.warn(error));
+const addFlight = (data) => new Promise((resolve, reject) => {
+  axios
+    .post(`${baseUrl}/flights.json`, data)
+    .then((response) => {
+      const update = { flightId: response.data.name };
+      axios.patch(`${baseUrl}/flights/${response.data.name}.json`, update);
+      const flights = Object.values(response.data);
+      const thisFlight = flights[0];
+      resolve(thisFlight);
+    })
+    .catch((error) => reject(error));
+});
 
 const getFlights = () => new Promise((resolve, reject) => {
   axios

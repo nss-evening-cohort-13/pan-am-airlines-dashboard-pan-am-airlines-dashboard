@@ -32,10 +32,10 @@ const updateFlightForm = (obj) => {
         <label for="flight-duration">Duration:</label>
         <input type="text" value="${obj.flightDuration}" class="form-control" id="flight-duration">
     </div>
-      <select class="mdb-select md-form" multiple>
-        <optgroup id="Crew" label="Crew">
-      </optgroup>
-        <optgroup id="Pilots" label="Pilots">
+      <select class="mdb-select md-form" multiple id="crewGroupSelect">
+        <optgroup id="crewId" label="Crew Members">
+        </optgroup>
+        <optgroup id="pilotId" label="Pilots">
         </optgroup>
       </select>
     <div class="form-group">
@@ -51,11 +51,11 @@ const updateFlightForm = (obj) => {
   crewData.getCrewMembers().then((response) => {
     response.forEach((item) => {
       if (item.role === 'Crew Member') {
-        $('optgroup#Crew').append(
+        $('optgroup#crewId').append(
           `<option value=${item.uid}>${item.name}</option>`
         );
       } else {
-        $('optgroup#Pilots').append(
+        $('optgroup#pilotId').append(
           `<option value=${item.uid}>${item.name}</option>`
         );
       }
@@ -79,7 +79,6 @@ const updateFlightForm = (obj) => {
       flightNumber: $('#flight-number').val() || false,
       departureTime: $('#flight-departure-time').val() || false,
       flightDuration: $('#flight-duration').val() || false,
-      planeId: $('#planeId').val() || false,
     };
     if (Object.values(information).includes(false)) {
       $('#error-message').html(
@@ -87,14 +86,28 @@ const updateFlightForm = (obj) => {
       );
     } else {
       $('#error-message').html('');
+
+      const planeInfo = $('#planeId').val();
+      const crewInfo = $('#crewGroupSelect').val();
+
       flightData
         .updateFlight(obj.flightId, information)
         .then(() => {
+          const flightInfo = {
+            flightId: obj.flightId
+          };
+
+          crewInfo.forEach((crewId) => {
+            crewData.updateCrewMember(crewId, flightInfo);
+          });
+
+          planeData.updatePlane(planeInfo, flightInfo);
           $('#success-message').html(
             '<div class="alert alert-success" role="alert">Info Updated!</div>'
           );
         })
         .catch((error) => console.warn(error));
+
       setTimeout(() => {
         $('#success-message').html('');
       }, 2000);
@@ -102,13 +115,17 @@ const updateFlightForm = (obj) => {
   });
   planeData.getPlanes().then((response) => {
     response.forEach((item) => {
-      $('#planeId').append(
-        `<option value='${item.uid}' ${
-          obj.planeId === item.uid ? "selected='selected'" : ''
-        }>${item.name}</option>`
-      );
+      $('#planeId').append(`<option value='${item.uid}' ${obj.flightId === item.flightId ? "selected='selected'" : ''}>${item.name}</option>`);
     });
   });
+
+  // crewData.getCrewMembers().then((response) => {
+  //   response.forEach((crewItem) => {
+  //     $('#crewGroupSelect').append(
+  //       `<option value='${crewItem.uid}' ${obj.flightId === crewItem.flightId ? "selected='selected'" : ''}>${crewItem.name}</option>`
+  //     );
+  //   });
+  // });
 };
 
 export default { updateFlightForm };
