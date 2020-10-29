@@ -100,6 +100,14 @@ const updateFlightForm = (obj) => {
             flightId: obj.flightId
           };
 
+          crewData.getFlightCrewByFlightId(obj.flightId).then((response) => {
+            if (response.length) {
+              response.forEach((item) => {
+                console.warn(item);
+              });
+            }
+          });
+
           crewInfo.forEach((crewId) => {
             crewData.updateCrewMember(crewId, flightInfo);
           });
