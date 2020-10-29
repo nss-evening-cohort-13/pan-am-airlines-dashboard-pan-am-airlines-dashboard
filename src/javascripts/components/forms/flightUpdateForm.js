@@ -49,36 +49,27 @@ const updateFlightForm = (obj) => {
   `);
 
   crewData.getCrewMembers().then((response) => {
-    response.forEach((item) => {
-      if (item.role === 'Crew Member') {
-        $('optgroup#crewId').append(
-          `<option value=${item.uid}>${item.name}</option>`
-        );
+    response.forEach((crewMember) => {
+      if (crewMember.role === 'Crew Member') {
+        $('optgroup#crewId').append(`<option value='${crewMember.uid}' ${obj.flightId === crewMember.flightId ? "selected='selected'" : ''}>${crewMember.name}</option>`);
       } else {
-        $('optgroup#pilotId').append(
-          `<option value=${item.uid}>${item.name}</option>`
-        );
+        $('optgroup#pilotId').append(`<option value='${crewMember.uid}' ${obj.flightId === crewMember.flightId ? "selected='selected'" : ''}>${crewMember.name}</option>`);
       }
     });
   });
 
   airportData.getAirports().then((response) => {
     response.forEach((item) => {
-      $('select#flight-origin').append(
-        `<option value = "${item.uid}">${item.city}, ${item.state}</option>`
-      );
-      $('select#flight-destination').append(
-        `<option value = "${item.uid}">${item.city}, ${item.state}</option>`
-      );
+      $('select#flight-origin').append(`<option value='${item.uid}' ${obj.origin_id === item.uid ? "selected='selected'" : ''}>${item.city}, ${item.state}</option>`);
+
+      $('select#flight-destination').append(`<option value='${item.uid}' ${obj.destination_id === item.uid ? "selected='selected'" : ''}>${item.city}, ${item.state}</option>`);
     });
   });
 
-  crewData.getFlightCrewByFlightId(obj.flightId).then((response) => {
-    if (response.length) {
-      response.forEach((crewMember) => {
-        $('optgroup#crewId').append(`<option value='${crewMember.uid}' ${obj.flightId === crewMember.flightId ? "selected='selected'" : ''}>${crewMember.name}</option>`);
-      });
-    }
+  planeData.getPlanes().then((response) => {
+    response.forEach((item) => {
+      $('#planeId').append(`<option value='${item.uid}' ${obj.flightId === item.flightId ? "selected='selected'" : ''}>${item.name}</option>`);
+    });
   });
 
   $('#add-flight-btn').on('click', (e) => {
@@ -135,20 +126,6 @@ const updateFlightForm = (obj) => {
         $('#success-message').html('');
       }, 2000);
     }
-  });
-
-  airportData.getAirports().then((response) => {
-    response.forEach((item) => {
-      $('select#flight-origin').append(`<option value='${item.uid}' ${obj.origin_id === item.uid ? "selected='selected'" : ''}>${item.city}, ${item.state}</option>`);
-
-      $('select#flight-destination').append(`<option value='${item.uid}' ${obj.destination_id === item.uid ? "selected='selected'" : ''}>${item.city}, ${item.state}</option>`);
-    });
-  });
-
-  planeData.getPlanes().then((response) => {
-    response.forEach((item) => {
-      $('#planeId').append(`<option value='${item.uid}' ${obj.flightId === item.flightId ? "selected='selected'" : ''}>${item.name}</option>`);
-    });
   });
 };
 
