@@ -73,6 +73,14 @@ const updateFlightForm = (obj) => {
     });
   });
 
+  crewData.getFlightCrewByFlightId(obj.flightId).then((response) => {
+    if (response.length) {
+      response.forEach((crewMember) => {
+        $('optgroup#crewId').append(`<option value='${crewMember.uid}' ${obj.flightId === crewMember.flightId ? "selected='selected'" : ''}>${crewMember.name}</option>`);
+      });
+    }
+  });
+
   $('#add-flight-btn').on('click', (e) => {
     e.preventDefault();
 
@@ -89,9 +97,8 @@ const updateFlightForm = (obj) => {
       );
     } else {
       $('#error-message').html('');
-
-      const planeInfo = $('#planeId').val();
       const crewInfo = $('#crewGroupSelect').val();
+      const planeInfo = $('#planeId').val();
       flightData
         .updateFlight(obj.flightId, information)
         .then(() => {
@@ -103,7 +110,7 @@ const updateFlightForm = (obj) => {
           crewData.getFlightCrewByFlightId(obj.flightId).then((response) => {
             if (response.length) {
               response.forEach((item) => {
-                // if existing crew member id is not found in selected
+                // if existing crew member is not found in selected
                 if (!crewInfo.includes(item.uid)) {
                   crewData.updateCrewMember(item.uid, {
                     flightId: ''
