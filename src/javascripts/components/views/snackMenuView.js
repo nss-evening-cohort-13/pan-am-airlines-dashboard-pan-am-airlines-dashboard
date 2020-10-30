@@ -10,6 +10,7 @@ const showSnacks = (user) => {
   FoodData.getSnacks().then((response) => {
     if (response.length) {
       $('#snack-btn-area').html('');
+      $('#snack-area').html('');
       $('#snack-btn-area').append(
         '<button type="button" class="btn btn-outline-dark" id="snack-btn"><i class="fas fa-utensils"></i> Snack Menu</button>'
       );
