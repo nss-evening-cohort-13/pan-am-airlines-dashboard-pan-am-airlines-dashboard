@@ -28,6 +28,7 @@ const showHomepage = () => {
           </tbody>
       </table>`
       );
+      $('.flight-details').html('');
       $('#app').append(`<div class="flight-details">
       <div class="title"><h1>Welcome to Panam</h1></div>
       <div class="instructions">Click on a flight row to see details</div>
