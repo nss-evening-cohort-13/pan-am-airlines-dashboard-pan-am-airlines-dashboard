@@ -49,6 +49,8 @@ const updateFlightForm = (obj) => {
   `);
 
   crewData.getCrewMembers().then((response) => {
+    $('optgroup#crewId').html('');
+    $('optgroup#pilotId').html('');
     response.forEach((crewMember) => {
       if (crewMember.role === 'Crew Member') {
         $('optgroup#crewId').append(`<option value='${crewMember.uid}' ${obj.flightId === crewMember.flightId ? "selected='selected'" : ''}>${crewMember.name}</option>`);
@@ -59,6 +61,8 @@ const updateFlightForm = (obj) => {
   });
 
   airportData.getAirports().then((response) => {
+    $('#flight-origin').html('');
+    $('#flight-destination').html('');
     response.forEach((item) => {
       $('select#flight-origin').append(`<option value='${item.uid}' ${obj.origin_id === item.uid ? "selected='selected'" : ''}>${item.city}, ${item.state}</option>`);
 
@@ -67,6 +71,7 @@ const updateFlightForm = (obj) => {
   });
 
   planeData.getPlanes().then((response) => {
+    $('#planeId').html('');
     response.forEach((item) => {
       $('#planeId').append(`<option value='${item.uid}' ${obj.flightId === item.flightId ? "selected='selected'" : ''}>${item.name}</option>`);
     });
@@ -82,6 +87,7 @@ const updateFlightForm = (obj) => {
       origin_id: $('#flight-origin').val() || false,
       destination_id: $('#flight-destination').val() || false,
     };
+
     if (Object.values(information).includes(false)) {
       $('#error-message').html(
         '<div class="alert alert-danger" role="alert">Please fill all fields!</div>'

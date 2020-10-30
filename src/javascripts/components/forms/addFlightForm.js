@@ -50,6 +50,8 @@ const flightForm = () => {
   `);
 
   airportData.getAirports().then((response) => {
+    $('#flight-origin').html('');
+    $('#flight-destination').html('');
     response.forEach((item) => {
       $('select#flight-origin').append(
         `<option value = "${item.uid}">${item.city}, ${item.state}</option>`
@@ -61,6 +63,8 @@ const flightForm = () => {
   });
 
   crewData.getCrewMembers().then((response) => {
+    $('#crewId').html('');
+    $('#pilotId').html('');
     response.forEach((item) => {
       if (item.role === 'Crew Member') {
         $('optgroup#crewId').append(
@@ -127,6 +131,7 @@ const flightForm = () => {
   });
 
   planeData.getPlanes().then((response) => {
+    $('#planeId').html('');
     response.forEach((item) => {
       $('#planeId').append(
         `<option value='${item.uid}'}>${item.name}</option>`
