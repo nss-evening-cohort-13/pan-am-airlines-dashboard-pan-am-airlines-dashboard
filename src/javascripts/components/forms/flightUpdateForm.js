@@ -26,11 +26,24 @@ const updateFlightForm = (obj) => {
     </div>
     <div class="form-group">
         <label for="flight-departure-time">Departure Time:</label>
-        <input type="text" value="${obj.departureTime}" class="form-control" id="flight-departure-time">
+        <input type="time" value="${obj.departureTime}" class="form-control" id="flight-departure-time">
     </div>
     <div class="form-group">
         <label for="flight-duration">Duration:</label>
-        <input type="text" value="${obj.flightDuration}" class="form-control" id="flight-duration">
+        <select class="form-control" id="flight-duration">
+              <option ${(obj.flightDuration === 1) ? 'selected' : ''} value="1">1</option>
+              <option ${(obj.flightDuration === 2) ? 'selected' : ''} value="2">2</option>
+              <option ${(obj.flightDuration === 3) ? 'selected' : ''}value="3">3</option>
+              <option ${(obj.flightDuration === 4) ? 'selected' : ''} value="4">4</option>
+              <option ${(obj.flightDuration === 5) ? 'selected' : ''} value="5">5</option>
+              <option ${(obj.flightDuration === 6) ? 'selected' : ''} value="6">6</option>
+              <option ${(obj.flightDuration === 7) ? 'selected' : ''} value="7">7</option>
+              <option ${(obj.flightDuration === 8) ? 'selected' : ''} value="8">8</option>
+              <option ${(obj.flightDuration === 9) ? 'selected' : ''} value="9">9</option>
+              <option ${(obj.flightDuration === 10) ? 'selected' : ''} value="10">10</option>
+              <option ${(obj.flightDuration === 11) ? 'selected' : ''} value="11">11</option>
+              <option ${(obj.flightDuration === 12) ? 'selected' : ''} value="12">12</option>
+            </select>
     </div>
       <select class="mdb-select md-form" multiple id="crewGroupSelect">
         <optgroup id="crewId" label="Crew Members">
