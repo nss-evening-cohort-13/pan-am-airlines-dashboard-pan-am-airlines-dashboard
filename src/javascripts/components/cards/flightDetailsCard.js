@@ -1,11 +1,11 @@
 import crewFunctions from '../../helpers/data/crewData';
 
 const flightDetailsCard = (flightData) => {
-  const domString = `
+  const domString = `<br/>
   <div class="flight-details-card" id="${flightData.flightId}">
-      <div>${flightData.flightNumber}</div>
-      <div>${flightData.flightDuration}</div>
-      <div>${flightData.departureTime}</div>
+      <div>Flight Number: ${flightData.flightNumber}</div>
+      <div>Flight Hours: ${flightData.flightDuration}</div>
+      <div>Departure Time: ${flightData.departureTime}</div>
       <h3> Crew: </h3>
       <div id="daCrew"></div>
       <h3> Pilot: </h3>
