@@ -12,6 +12,34 @@ https://fir-pan-am.web.app/
 # MOTIVATION/CONTEXT
 This project was completed as part of our portfolio at Nashville Software School. It was a collaborative effort that showcases our newly-acquired skills in using Firebase, Postman, and API's as well as relational databases. 
 
+# CODE SNIPPET
+``` crewFunctions.getFlightCrewByFlightId(flightData.flightId).then((response) => {
+    $('#pilot').html('');
+    $('#daCrew').html('');
+    let pilots = 0;
+    let crew = 0;
+    response.forEach((item) => {
+      if (item.role === 'Pilot') {
+        pilots += 1;
+        crew += 1;
+        $('#pilot').append(
+          `<div class='${item.uid}'>${item.name}</div>`
+        );
+      } else {
+        crew += 1;
+        $('#daCrew').append(
+          `<div class='${item.uid}'>${item.name}</div>`
+        );
+      }
+    });
+    if ((pilots >= 2) && (crew >= 4)) {
+      $('#complete').append('<h3 class="green">Complete Flight</h3>');
+    } else {
+      $('#complete').append('<h3 class="red">Incomplete Flight</h3>');
+    }
+  }); ```
+
+
 # TECHNOLOGY/TOOLS EMPLOYED
   - VS CODE
   - Javascript
@@ -33,6 +61,9 @@ This project was completed as part of our portfolio at Nashville Software School
 
 # ERD
 ![erd](images/flightsERD.PNG)
+
+# UPDATE FLIGHT FORM
+![image](images/UpdateFlightsForm.PNG)
 
 # WIREFRAME
 ![wireframe](images/PanAmFigmaSample.png)
