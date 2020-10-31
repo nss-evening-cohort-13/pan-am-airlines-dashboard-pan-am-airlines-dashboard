@@ -1,6 +1,10 @@
 # pan-am-airlines-dashboard
 
-![giffy](images/demoPanAm.gif)
+![image](images/frontPage.PNG)
+
+# DEPLOYED
+This project was deployed via Firebase
+https://fir-pan-am.web.app/
 
 # DESCRIPTION
  This project is called nutshell. We were tasked with finishing a half finished project on top of new requirments. The project was about making CRUD for a PanAm app. The new requirements were to be able to book flights with crew, meals (flights under 6hrs = snack, over 6hrs = snack, meal), destination, and your choice of plane. 
@@ -28,7 +32,7 @@ This project was completed as part of our portfolio at Nashville Software School
  - Will Kotheimer
 
 # ERD
-![erd](images/PanAmERD.jpeg)
+![erd](images/flightsERD.PNG)
 
 # WIREFRAME
 ![wireframe](images/PanAmFigmaSample.png)
