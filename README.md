@@ -69,5 +69,5 @@ crewFunctions.getFlightCrewByFlightId(flightData.flightId).then((response) => {
 
 # WIREFRAME
 ![wireframe](images/PanAmFigmaSample.png)
-[Check out the rest here](https://www.figma.com/file/9y9GwujaCg3Rzr5w2QCHra/PanAm?node-id=0%3A1)
+[Check out the rest here](https://www.figma.com/file/E0Apl5g8RXn6plTtiUAc3G/PanAm-(Part-2)?node-id=0%3A1)
 
