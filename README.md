@@ -13,7 +13,8 @@ https://fir-pan-am.web.app/
 This project was completed as part of our portfolio at Nashville Software School. It was a collaborative effort that showcases our newly-acquired skills in using Firebase, Postman, and API's as well as relational databases. 
 
 # CODE SNIPPET
-``` crewFunctions.getFlightCrewByFlightId(flightData.flightId).then((response) => {
+``` 
+crewFunctions.getFlightCrewByFlightId(flightData.flightId).then((response) => {
     $('#pilot').html('');
     $('#daCrew').html('');
     let pilots = 0;
