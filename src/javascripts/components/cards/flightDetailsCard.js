@@ -12,14 +12,14 @@ const flightDetailsCard = (flightData) => {
       <div id="pilot"></div>
     </div>`;
   crewFunctions.getFlightCrewByFlightId(flightData.flightId).then((response) => {
+    $('#pilot').html('');
+    $('#daCrew').html('');
     response.forEach((item) => {
       if (item.role === 'Pilot') {
-        $('#pilot').html('');
         $('#pilot').append(
           `<div class='${item.uid}'>${item.name}</div>`
         );
       } else {
-        $('#daCrew').html('');
         $('#daCrew').append(
           `<div class='${item.uid}'>${item.name}</div>`
         );
