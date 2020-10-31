@@ -37,7 +37,8 @@ This project was completed as part of our portfolio at Nashville Software School
     } else {
       $('#complete').append('<h3 class="red">Incomplete Flight</h3>');
     }
-  }); ```
+  });
+  ```
 
 
 # TECHNOLOGY/TOOLS EMPLOYED
