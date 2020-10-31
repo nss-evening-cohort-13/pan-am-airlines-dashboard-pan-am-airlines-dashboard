@@ -4,6 +4,7 @@
 $commonBG: url('/images/homeAM.jpg');
 
 body {
+  font-family: Monaco, MonoSpace;
   background-color: rgb(54, 137, 255);
   #landing-page-image {
     height: 40em;
@@ -119,3 +120,8 @@ body {
 .red {
   color: red;
 }
+
+.card a:hover {
+filter: drop-shadow(0 0 5px #333);
+}
+

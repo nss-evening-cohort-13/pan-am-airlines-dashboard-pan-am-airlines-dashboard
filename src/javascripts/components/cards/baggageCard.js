@@ -8,6 +8,8 @@ const baggageBuilder = (baggage) => {
     buttons += `<a href="#" id="${baggage.uid}" class="btn btn-info update-baggage"><i class="far fa-edit"></i> Update baggage</a>
     <a href="#" id="${baggage.uid}" class="btn btn-danger delete-baggage">Delete baggage</a>
   `;
+  } else {
+    buttons += '<div class="sellMessage">Please ask the desk attendent about our assortment of baggage for sale!</div>';
   }
   const domString = `<div class="card" style="width: 18rem;">
       <img src="${baggage.image}" class="card-img-top" alt="...">
