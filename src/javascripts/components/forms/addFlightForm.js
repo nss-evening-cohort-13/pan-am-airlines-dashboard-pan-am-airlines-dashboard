@@ -32,18 +32,18 @@ const flightForm = () => {
       <div class="form-group">
       <label for="flight-duration">Duration:</label>
       <select class="form-control" id="flight-duration">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3">3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-              <option value="6">6</option>
-              <option value="7">7</option>
-              <option value="8">8</option>
-              <option value="9">9</option>
-              <option value="10">10</option>
-              <option value="11">11</option>
-              <option value="12">12</option>
+              <option value="1">1hr</option>
+              <option value="2">2hrs</option>
+              <option value="3">3hrs</option>
+              <option value="4">4hrs</option>
+              <option value="5">5hrs</option>
+              <option value="6">6hrs</option>
+              <option value="7">7hrs</option>
+              <option value="8">8hrs</option>
+              <option value="9">9hrs</option>
+              <option value="10">10hrs</option>
+              <option value="11">11hrs</option>
+              <option value="12">12hrs</option>
             </select>
     </div>
     <select class="mdb-select md-form" multiple id="crewGroupSelect">
