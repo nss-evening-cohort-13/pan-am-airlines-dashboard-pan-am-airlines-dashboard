@@ -31,6 +31,7 @@ const flightDetailsCard = (flightData) => {
         );
       }
     });
+    $('#complete').html('');
     if ((pilots >= 2) && (crew >= 4)) {
       $('#complete').append('<h3 class="green">Complete Flight</h3>');
     } else {
